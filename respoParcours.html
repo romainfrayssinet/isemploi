@@ -125,9 +125,31 @@
                       <br>
                       <u>Validation:</u>
                         <div class="buttons">
-                          <a href="#"><img src="assets\images\checked.png" alt="valid" /></a>
-                          <a href="#"><img src="assets\images\question.png" alt="details" /></a>
-                          <a href="#"><img src="assets\images\cancel.png" alt="annule" /></a>
+                          <a href="#"><img src="assets\images\checked.png" alt="valid"/></a>
+                          <a href="#"><img src="assets\images\question.png" alt="details" data-toggle="modal" data-target="#myModal"/></a>
+                          <a href="#"><img src="assets\images\cancel.png" alt="annule"/></a>
+                        </div>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Demandez plus de détails sur ce stage</h4>
+                                <div class="modal-body">
+                                  <p>Destinataire: william.duvant@isep.fr</p>
+                                  <p>Objet de votre message: <input type="text" name="obj"></p>
+                                  <p>
+                                    Message:<br>
+                                    <textarea name="mail" rows="8" cols="70"></textarea>
+                                  </p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                  <button type="button" class="btn btn-primary">Envoyer</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                     </p>
                   </div>
