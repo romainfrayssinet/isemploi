@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets\css\bootstrap-3.3.7\dist\css\bootstrap.min.css">
     <link rel="stylesheet" href="css\style.css">
-    <link rel="stylesheet" href="css\circle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Responsable Parcours</title>
@@ -24,9 +23,9 @@
           <img src="assets\images\respoParcours.jpg" class="img-circle img-responsive" alt="imageRespo" width="70%" style="margin-left: auto; margin-right: auto;">
           <h2>Sophie Retana</h2>
           <div class="infos">
-              <p id="profession">Enseignant chercheur à l'ISEP</p>
-              <p id="lieu">Paris, France</p>
-              <p id="role">Responsable Parcours Systèmes d'Information</p>
+              <p>Enseignant chercheur à l'ISEP</p>
+              <p>Paris, France</p>
+              <p>Responsable Parcours Systèmes d'Information</p>
               <button type="button" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier infos</button>
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -35,21 +34,14 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Modifier vos informations</h4>
                       <div class="modal-body">
-                        <p>Modifier votre profession:<br> <input type="text" name="newProfession" value="Enseignant chercheur à l'ISEP" id="newProfession"></p>
-                        <p>Modifier le lieu où vous travaillez:<br> <input type="text" name="newLieu" value="Paris, France" id="newLieu"></p>
+                        <p>Modifier votre profession:<br> <input type="text" name="newProfession" value="Enseignant chercheur à l'ISEP"></p>
+                        <p>Modifier le lieu où vous travaillez:<br> <input type="text" name="newLieu" value="Paris, France"></p>
                         <p>Modifier votre rôle au sein de l'ISEP:<br> <input type="text" name="newRole" value="Responsable Parcours Systèmes d'Information" id="newRole"></p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary">Envoyer</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
                       </div>
-                      <script>
-                        var profession = document.getElementById('profession');
-                        var lieu = document.getElementById('lieu');
-                        var role = document.getElementById('role')
-
-
-                      </script>
                     </div>
                   </div>
                 </div>

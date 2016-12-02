@@ -12,9 +12,6 @@ nav.col-lg-3{
   line-height: 40px;*/
   text-align: center;
 }
-nav.col-lg-3{
-}
-
 .row{
   margin: auto;
   margin-left: auto;
@@ -31,7 +28,7 @@ div.tab-content{
   padding-top: 10px;
   text-align: justify;
 }
-input#newProfession, #newLieu, #newRole{
+.modal-body input{
   width: 100%;
 }
 h2{
