@@ -31,6 +31,9 @@ div.tab-content{
   padding-top: 10px;
   text-align: justify;
 }
+input#newProfession, #newLieu, #newRole{
+  width: 100%;
+}
 h2{
   text-align: center;
 }
