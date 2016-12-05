@@ -23,13 +23,15 @@ nav.col-lg-3{
   margin-left: auto;
   margin-right: auto;
 }
-
 div.tab-content{
   padding-top: 10px;
   text-align: justify;
 }
-.modal-body input{
-  width: 100%;
+div.modal-content{
+  text-align: left;
+}
+h4#myModalLabel{
+  text-align: center;
 }
 h2{
   text-align: center;
