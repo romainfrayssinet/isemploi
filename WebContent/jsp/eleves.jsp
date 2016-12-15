@@ -6,7 +6,7 @@
 	
 	<body>
 	
-		<strong> Eleves </strong>
+		<strong> Eleves Test</strong>
 		
 		<c:forEach var = "eleve" items = "${eleves}">
 			<p>
