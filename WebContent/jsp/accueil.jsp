@@ -6,6 +6,7 @@
 <title>Accueil</title>
 </head>
 <body>
+	Test
 	<h1>Bienvenue sur ISEmPoi !</h1>
 	<p><a href="connexion">Connexion</a></p>
 	<p><a href="eleves">Elèves</a></p>
