@@ -12,8 +12,6 @@
 
     <div class="container">
 
-      <h1>Coucou !</h1>
-
       <h2>Bienvenue sur ISEmPloi ! </h2>
 
       <form method="post" action="">
