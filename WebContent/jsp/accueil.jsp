@@ -6,7 +6,7 @@
 <title>Accueil</title>
 </head>
 <body>
-	Encore un test
+	Encore un test blabla
 	<h1>Bienvenue sur ISEmPloi !</h1>
 	<p><a href="connexion">Connexion</a></p>
 	<p><a href="eleves">Elèves</a></p>
