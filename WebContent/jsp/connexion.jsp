@@ -12,10 +12,12 @@
 
     <div class="container">
 
+      <h1>Coucou !</h1>
+
       <h2>Bienvenue sur ISEmPloi ! </h2>
 
       <form method="post" action="">
-         <b>Déjà inscrit ?</b>
+         <b>Dï¿½jï¿½ inscrit ?</b>
         <div class="form-group">
           <input type="text" name="identifiant"  placeholder="Identifiant">
         </div>
@@ -28,11 +30,11 @@
       </form>
 
       <p>
-        <b>Première visite sur ce site ?</b> <br>
+        <b>Premiï¿½re visite sur ce site ?</b> <br>
         Utilisez votre identifiant et mot de passe ISEP <br>
         Use your ISEP's login
       </p>
     </div>
-    
+
   </body>
 </html>
