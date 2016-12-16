@@ -6,6 +6,7 @@
 <title>Accueil</title>
 </head>
 <body>
+test Marine
 	<h1>Bienvenue sur ISEmPloi !</h1>
 	<p><a href="connexion">Connexion</a></p>
 	<p><a href="eleves">Elèves</a></p>
