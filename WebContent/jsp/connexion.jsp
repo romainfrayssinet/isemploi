@@ -13,8 +13,6 @@
     <div class="container">
 
       <h2>Bienvenue sur ISEmPloi ! </h2>
-      
-      test
 
       <form method="post" action="">
          <b>D�j� inscrit ?</b>
