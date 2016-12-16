@@ -18,12 +18,11 @@ public class DAOUtilitaires {
 		 try{
 			 try{
 				 Class.forName("com.mysql.jdbc.Driver");// differs from DB server to server
+				 connexion = (Connection) DriverManager.getConnection(url, username, password);
 			 }
 			 catch (ClassNotFoundException e){
 				 e.printStackTrace();
 			 }
-
-			 connexion = (Connection) DriverManager.getConnection(url, username, password);
 
 		 }
 		 catch (Exception e)
