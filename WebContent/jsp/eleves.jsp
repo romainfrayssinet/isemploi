@@ -8,6 +8,8 @@
 	
 		<strong> Eleves</strong>
 		
+		test
+		
 		<c:forEach var = "eleve" items = "${eleves}">
 			<p>
 				<c:out value = "${eleve.id }" />
