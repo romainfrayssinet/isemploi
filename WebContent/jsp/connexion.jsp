@@ -28,7 +28,7 @@
       </form>
 
       <p>
-        <b>Premiï¿½re visite sur ce site ?</b> <br>
+        <b>Première visite sur ce site ?</b> <br>
         Utilisez votre identifiant et mot de passe ISEP <br>
         Use your ISEP's login
       </p>
