@@ -7,6 +7,7 @@
 	<body>
 	
 		<strong> Eleves</strong>
+		test
 		
 		<c:forEach var = "eleve" items = "${eleves}">
 			<p>
