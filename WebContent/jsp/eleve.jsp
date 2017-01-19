@@ -22,7 +22,7 @@
 						<ul class="nav nav-tabs nav-justified">
 							<li class="active"><a href="#profil">Profil</a></li>
 							<li><a href="#valid">Validation</a></li>
-							<li><a href="#contact">Contact</a></li>
+							<li class="bar"><a href="#contact">Contact</a></li>
 						</ul>
 					</section>
 				</div>
@@ -35,7 +35,7 @@
           <h2>${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</h2>
 
           <div class="infos">
-          
+
           	<c:choose>
 				<c:when test = "${ empty sessionScope.sessionUtilisateur.situation }">
 	   				<p>Quelle est votre situation à l'ISEP ?<p>
@@ -44,7 +44,7 @@
 			     	<p>${sessionScope.sessionUtilisateur.situation}</p>
 			    </c:otherwise>
 			</c:choose>
-			
+
 			<c:choose>
 				<c:when test = "${ empty sessionScope.sessionUtilisateur.parcours }">
 	   				<p>Indiquez votre parcours !<p>
@@ -53,7 +53,7 @@
 			     	<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 			    </c:otherwise>
 			</c:choose>
-			
+
 			<c:choose>
 				<c:when test = "${ empty sessionScope.sessionUtilisateur.recherche }">
 					<p>Où travaillez-vous ?<p>
@@ -62,7 +62,7 @@
               		<p>${sessionScope.sessionUtilisateur.lieuTravail}</p>
 			    </c:otherwise>
 			</c:choose>
-			
+
 			<c:choose>
 				<c:when test = "${ empty sessionScope.sessionUtilisateur.recherche }">
 	   				<p>Que recherchez-vous ?<p>
@@ -71,8 +71,8 @@
               		<p>Recherche ${sessionScope.sessionUtilisateur.recherche}</p>
 			    </c:otherwise>
 			</c:choose>
-              
-              
+
+
               <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv">Modifier infos</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
@@ -368,7 +368,7 @@
               </div>
               <button type="button" class="btn btn-primary">Envoyer</button>
             </div>
-            
+
             <div class="modal fade" id="ajoutExperience" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -407,7 +407,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="modal fade" id="ajoutCompetence" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -434,7 +434,7 @@
 			                        	<input type="text" class="form-control ajoutComp" name="newCompetenceBdd" value="">
 			                        	<input type="submit" class="btn btn-primary" name="boutonAjoutCompetenceEleveBdd" value="Ajouter">
 			                        </p>
-		                        </div>                     
+		                        </div>
 	                        </form>
 	                  	</div>
                       	<div class="modal-footer">
@@ -444,7 +444,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="modal fade" id="ajoutInteret" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -467,7 +467,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
           <script>
           $(document).ready(function(){

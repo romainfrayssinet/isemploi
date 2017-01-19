@@ -19,9 +19,9 @@
 					</section>
 					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 			          <ul class="nav nav-tabs nav-justified">
-			            <li class="active"><a href="#profil">Profil de ${user.prenom} ${user.nom}</a></li>
-			            <li><a href="#contact">Contacter ${user.prenom} ${user.nom}</a></li>
-			            <li><a href="${pageContext.request.contextPath}/accueil">Retourner à l'Accueil</a></li>
+			            <li class="bar active"><a href="#profil">Profil de ${user.prenom} ${user.nom}</a></li>
+			            <li class="bar"><a href="#contact">Contacter ${user.prenom} ${user.nom}</a></li>
+			            <li class="bar"><a href="${pageContext.request.contextPath}/accueil">Retourner à l'Accueil</a></li>
 			          </ul>
 					</section>
 				</div>
@@ -74,8 +74,8 @@
         <section class="col-lg-9">
           <div class="tab-content">
             <div id="profil" class="tab-pane fade in active">
- 
- 				<h2><img src="http://storage.iseplive.fr/avatars/${user.debutNumero}/${user.numero}.jpg" class="img-responsive img-rounded petitePhotoProfil" alt="imageEleve" style="margin-left: auto; margin-right: auto; width:20% "></h2>           
+
+ 				<h2><img src="http://storage.iseplive.fr/avatars/${user.debutNumero}/${user.numero}.jpg" class="img-responsive img-rounded petitePhotoProfil" alt="imageEleve" style="margin-left: auto; margin-right: auto; width:20% "></h2>
             	<h2>${user.prenom} ${user.nom}</h2>
 				<fieldset><legend>ISEP:</legend>
 					<c:choose>
