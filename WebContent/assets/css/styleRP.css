@@ -14,7 +14,6 @@ nav.col-lg-12{
 	background-size: cover;
 	height: 200px;
 }
-
 section.col-lg-9{
   position: relative;
   height: 200px;
@@ -22,6 +21,15 @@ section.col-lg-9{
 .nav-tabs.nav-justified{
   position: absolute;
   bottom: 0px;
+}
+.bar.active{
+	background: white;
+	opacity:1;
+}
+.bar{
+	background: #F7F9F9;
+	opacity: 0.9;
+	border-radius: 2px;
 }
 nav.col-lg-3{
   padding-top: 10px;
@@ -37,11 +45,11 @@ nav.col-lg-3{
 }
 
 .petitesPhotosProfil{
-	width: 3em;
 	margin-left: auto;
 	margin-right: auto;
 }
-.imgElv.col-lg-4.col-md-4.col-sm-4.col-xs-4{
+.col-lg-4.col-md-4.col-sm-4.col-xs-4{
+	padding-top: 10px;
 	width: 20%;
 }
 .container {
