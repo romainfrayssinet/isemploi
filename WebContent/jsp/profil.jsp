@@ -77,33 +77,68 @@
  
  				<h2><img src="http://storage.iseplive.fr/avatars/${user.debutNumero}/${user.numero}.jpg" class="img-responsive img-rounded petitePhotoProfil" alt="imageEleve" style="margin-left: auto; margin-right: auto; width:20% "></h2>           
             	<h2>${user.prenom} ${user.nom}</h2>
-              	<p><u>Promotion :</u> ${user.promo} </p>
-              	<p><u>Parcours suivi:</u> ${user.parcours}</p>
-              	<div class="upload">
-                	<button type="button" class="btn btn-primary" name="uploadCV">CV</button>
-                	<button type="button" class="btn btn-primary" name="uploadLM">Lettre de motivation</button>
-              	</div><br>
-              <p><u>Profil LinkedIn:</u> <a href="${user.linkedin}" target="_blank">${user.prenom} ${user.nom}</a></p>
-              <p><u>E-Mail:</u> ${user.email}</p>
-              <p><u>Téléphone:</u> ${user.portable} </p>
-              <p>
-              <u>Expérience:</u>
-	          	<ul>
-	            	<c:forEach var = "experience" items = "${experiences}">
+				<fieldset><legend>ISEP:</legend>
+					<c:choose>
+						<c:when test = "${ empty user.promo }">
+			   				<p>${user.prenom} ${user.nom} n'a pas renseigné sa promo !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Promotion :</u> ${user.promo}</p>
+					    </c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test = "${ empty user.parcours }">
+			   				<p>${user.prenom} ${user.nom} n'a pas renseigné son parcours !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Parcours suivi:</u> ${user.parcours}</p>
+					    </c:otherwise>
+					</c:choose>
+				</fieldset>
+				<fieldset><legend>Fichiers de ${user.prenom}:</legend>
+	              <div class="upload">
+					<div class="row">
+						<div class="col-lg-6">
+							<legend>CV</legend>
+						</div>
+						<div class="col-lg-6">
+							<legend>Lettre de Motivation</legend>
+						</div>
+					</div>
+	              </div>
+				</fieldset>
+				<fieldset><legend>Contact:</legend>
+					<p><u>Profil LinkedIn:</u> <a href="${user.linkedin}" target="_blank">${user.prenom} ${user.nom}</a></p>
+					<p><u>E-Mail:</u> ${user.email}</p>
+					<c:choose>
+						<c:when test = "${ empty user.portable }">
+			   				<p>${user.prenom} ${user.nom} n'a pas renseigné son téléphone !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Téléphone:</u> ${user.portable}</p>
+					    </c:otherwise>
+					</c:choose>
+				</fieldset>
+              <fieldset><legend class="addBtn">Expériences:</legend>
+				<ul>
+					<c:forEach var = "experience" items = "${experiences}">
 						<p>
-							<p><u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><br>
+							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><br>
 							${experience.description}
 						</p>
 					</c:forEach>
 				</ul>
-              <p>
-                <u>Expérience:</u><br>
-                #PHP #MySQL #HTML #CSS #JS #Javascript #Office #Java #Servlet #Agile
-              </p>
-              <p>
-                <u>Intérêts:</u><br>
-                #Sport #Boxe #EntraineurSportif
-              </p>
+              </fieldset>
+              <fieldset><legend class="addBtn">Compétences:</legend>
+                <c:forEach var = "competence" items = "${competencesEleve}">
+               		#${competence.nom}
+                </c:forEach>
+              </fieldset>
+              <fieldset><legend class="addBtn">Intérêts:</legend>
+               	<c:forEach var = "interet" items = "${interetsEleve}">
+               		#${interet.nom}
+                </c:forEach>
+              </fieldset>
             </div>
 
             <div id="contact" class="tab-pane fade">
