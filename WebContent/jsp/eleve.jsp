@@ -23,6 +23,7 @@
 							<li class="active"><a href="#profil">Profil</a></li>
 							<li><a href="#valid">Validation</a></li>
 							<li><a href="#contact">Contact</a></li>
+							<li> Test </li>
 						</ul>
 					</section>
 				</div>
