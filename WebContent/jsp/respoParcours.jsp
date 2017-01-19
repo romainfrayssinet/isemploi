@@ -207,9 +207,9 @@
                       <br>
                       <u>Validation:</u>
                         <div class="buttons">
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" alt="valid"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" alt="annule"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
                         </div>
                     </p>
                   </div>
@@ -228,9 +228,9 @@
                       <br>
                       <u>Validation:</u>
                         <div class="buttons">
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" alt="valid"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" alt="annule"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
                         </div>
                     </p>
                   </div>
