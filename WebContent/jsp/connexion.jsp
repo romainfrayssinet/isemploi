@@ -12,7 +12,7 @@
   <body>
     <header class="row">
       <div class="col-lg-12">
-        
+
       </div>
     </header>
     <div class="container">
@@ -22,7 +22,7 @@
              <form class="login" action="" method="post">
                <input type="text" placeholder="Identifiant" name="identifiant"/>
                <input type="password" placeholder="Mot de Passe" name="mdp" />
-               <input type="submit" value="Connexion" class="btn btn-success btn-sm" />
+               <input type="submit" value="Connexion" class="btn" />
                <div class="remember-forgot">
                  <div class="row">
                    <div class="checkbox">
@@ -34,5 +34,18 @@
            </div>
       </div>
     </div>
+		<footer>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					Salut
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					Salut
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					Salut
+				</div>
+			</div>
+		</footer>
   </body>
 </html>

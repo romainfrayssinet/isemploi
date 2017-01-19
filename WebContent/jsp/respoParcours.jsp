@@ -22,9 +22,9 @@
   					</section>
   					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
               <ul class="nav nav-tabs nav-justified">
-                <li class="active"><a href="#accueil">Accueil</a></li>
-                <li><a href="#valid">Validation</a></li>
-                <li><a href="#eleves">Élèves</a></li>
+                <li class="bar active"><a href="#accueil">Accueil</a></li>
+                <li class="bar"><a href="#valid">Validation</a></li>
+                <li class="bar"><a href="#eleves">Élèves</a></li>
               </ul>
   					</section>
   				</div>
@@ -101,7 +101,7 @@
               	<h2>Élèves</h2>
               	<div class="row">
 	              	<c:forEach var = "eleve" items = "${eleves}">
-		              	<div class="imgElv col-lg-4 col-md-4 col-sm-4 col-xs-4">
+		              	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 			              	<table>
 			              		<!-- <tr>
 			            			<td> -->
