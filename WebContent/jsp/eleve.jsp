@@ -122,77 +122,77 @@
         <section class="col-lg-9">
           <div class="tab-content">
             <div id="profil" class="tab-pane fade in active">
-							<fieldset><legend>ISEP:</legend>
-								<c:choose>
-									<c:when test = "${ empty sessionScope.sessionUtilisateur.promo }">
-						   				<p>Indiquez votre promo !<p>
-									</c:when>
-								    <c:otherwise>
-								     	<p><u>Promotion :</u> ${sessionScope.sessionUtilisateur.promo}</p>
-								    </c:otherwise>
-								</c:choose>
-								<c:choose>
-									<c:when test = "${ empty sessionScope.sessionUtilisateur.parcours }">
-						   				<p>Indiquez votre parcours !<p>
-									</c:when>
-								    <c:otherwise>
-								     	<p><u>Parcours suivi:</u> ${sessionScope.sessionUtilisateur.parcours}</p>
-								    </c:otherwise>
-								</c:choose>
-							</fieldset>
-							<fieldset><legend>Upload:</legend>
-				              <div class="upload">
-								<div class="row">
-									<div class="col-lg-6">
-										<legend>Partager votre CV</legend>
-										<input id="imageCV" type="image" src="${pageContext.request.contextPath}/assets/images/upload.png" class="addCV" style="width: 20%;">
-										<input type="file" id="uploadCV" style="display:none;">
-										<script>
-											$("input[id='imageCV']").click(function() {
-												$("input[id='uploadCV']").click();
-											});
-										</script>
-										<span class='label label-info' id="uploadCV"></span><br>
-									</div>
-									<div class="col-lg-6">
-										<legend>Partager votre Lettre de Motivation</legend>
-										<input id="imageLM" type="image" src="${pageContext.request.contextPath}/assets/images/upload.png" class="addLM" style="width: 20%;">
-										<input type="file" id="uploadLM" style="display:none;">
-										<script>
-											$("input[id='imageLM']").click(function() {
-												$("input[id='uploadLM']").click();
-											});
-										</script>
-										<%-- <img src="${pageContext.request.contextPath}/assets/images/upload.png" class="addLM" onclick="javascript:$('#upload-lm').html($(this).val());" alt="addLM" name="uploadLM"/>
-										<label class="btn btn-primary btn-file">
-		    							Lettre de motivation <input type="file" class="hidden" onchange="$('#upload-lm').html($(this).val());">
-										</label> --%>
-										<span class='label label-info' id="upload-lm"></span>
-									</div>
-								</div>
-				              </div>
-							</fieldset>
-							<fieldset><legend>Contact:</legend>
-								<p><u>Profil LinkedIn:</u> <a href="${sessionScope.sessionUtilisateur.linkedin}" target="_blank">${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</a></p>
-								<p><u>E-Mail:</u> ${sessionScope.sessionUtilisateur.email}</p>
-								<c:choose>
-									<c:when test = "${ empty sessionScope.sessionUtilisateur.portable }">
-						   				<p>Renseignez votre téléphone !<p>
-									</c:when>
-								    <c:otherwise>
-								     	<p><u>Téléphone:</u> ${sessionScope.sessionUtilisateur.portable}</p>
-								    </c:otherwise>
-								</c:choose>
-							</fieldset>
+				<fieldset><legend>ISEP:</legend>
+					<c:choose>
+						<c:when test = "${ empty sessionScope.sessionUtilisateur.promo }">
+			   				<p>Indiquez votre promo !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Promotion :</u> ${sessionScope.sessionUtilisateur.promo}</p>
+					    </c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test = "${ empty sessionScope.sessionUtilisateur.parcours }">
+			   				<p>Indiquez votre parcours !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Parcours suivi:</u> ${sessionScope.sessionUtilisateur.parcours}</p>
+					    </c:otherwise>
+					</c:choose>
+				</fieldset>
+				<fieldset><legend>Upload:</legend>
+	              <div class="upload">
+					<div class="row">
+						<div class="col-lg-6">
+							<legend>Partager votre CV</legend>
+							<input id="imageCV" type="image" src="${pageContext.request.contextPath}/assets/images/upload.png" class="addCV" style="width: 20%;">
+							<input type="file" id="uploadCV" style="display:none;">
+							<script>
+								$("input[id='imageCV']").click(function() {
+									$("input[id='uploadCV']").click();
+								});
+							</script>
+							<span class='label label-info' id="uploadCV"></span><br>
+						</div>
+						<div class="col-lg-6">
+							<legend>Partager votre Lettre de Motivation</legend>
+							<input id="imageLM" type="image" src="${pageContext.request.contextPath}/assets/images/upload.png" class="addLM" style="width: 20%;">
+							<input type="file" id="uploadLM" style="display:none;">
+							<script>
+								$("input[id='imageLM']").click(function() {
+									$("input[id='uploadLM']").click();
+								});
+							</script>
+							<%-- <img src="${pageContext.request.contextPath}/assets/images/upload.png" class="addLM" onclick="javascript:$('#upload-lm').html($(this).val());" alt="addLM" name="uploadLM"/>
+							<label class="btn btn-primary btn-file">
+	  							Lettre de motivation <input type="file" class="hidden" onchange="$('#upload-lm').html($(this).val());">
+							</label> --%>
+							<span class='label label-info' id="upload-lm"></span>
+						</div>
+					</div>
+	              </div>
+				</fieldset>
+				<fieldset><legend>Contact:</legend>
+					<p><u>Profil LinkedIn:</u> <a href="${sessionScope.sessionUtilisateur.linkedin}" target="_blank">${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</a></p>
+					<p><u>E-Mail:</u> ${sessionScope.sessionUtilisateur.email}</p>
+					<c:choose>
+						<c:when test = "${ empty sessionScope.sessionUtilisateur.portable }">
+			   				<p>Renseignez votre téléphone !<p>
+						</c:when>
+					    <c:otherwise>
+					     	<p><u>Téléphone:</u> ${sessionScope.sessionUtilisateur.portable}</p>
+					    </c:otherwise>
+					</c:choose>
+				</fieldset>
               <fieldset><legend class="addBtn">Expériences:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutExperience"/></legend>
-							<ul>
-								<c:forEach var = "experience" items = "${experiences}">
-									<p>
-										<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><br>
-										${experience.description}
-									</p>
-								</c:forEach>
-							</ul>
+				<ul>
+					<c:forEach var = "experience" items = "${experiences}">
+						<p>
+							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><br>
+							${experience.description}
+						</p>
+					</c:forEach>
+				</ul>
               </fieldset>
               <fieldset><legend class="addBtn">Compétences:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutCompetence"/></legend>
                 <c:forEach var = "competence" items = "${competencesEleve}">
@@ -275,37 +275,37 @@
 	                <b>Adresse e-mail:</b>
 	                <input class="form-control" type="email" name="mailConvention">
 	              </div>
-							</fieldset>
-							<fieldset><legend>Responsable de stage:</legend>
-								<div class="form-group">
-									Nom: <input class="form-control" type="text" name="nomRespo">
-									Prénom: <input class="form-control" type="text" name="prenomRespo">
-								</div>
-								<div class="form-group">
-	                N° de Tél.:
-	                <input class="form-control" type="tel" name="telRespo">
-	              </div>
-								<div class="form-group">
-	                <b>Adresse e-mail:</b>
-	                <input class="form-control" type="email" name="mailRespo">
-	              </div>
-								<div class="form-group">
-	                Fonction précise dans la société:
-	                <input class="form-control" type="text" name="fonctionRespo">
-	              </div>
-							</fieldset>
-							<fieldset><legend>Stage:</legend>
-								<div class="form-group">
-									<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
-									<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
-								</div>
-								<div class="form-group">
-									Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
-								</div>
-								<div class="form-group">
-	                <b>Indémnité de stage en euros, mensuelle brute:</b>
-	                <input class="form-control" type="number" name="indemnite">
-	              </div>
+				</fieldset>
+				<fieldset><legend>Responsable de stage:</legend>
+					<div class="form-group">
+						Nom: <input class="form-control" type="text" name="nomRespo">
+						Prénom: <input class="form-control" type="text" name="prenomRespo">
+					</div>
+					<div class="form-group">
+	                	N° de Tél.:
+	                	<input class="form-control" type="tel" name="telRespo">
+	             	 </div>
+					<div class="form-group">
+	                	<b>Adresse e-mail:</b>
+	                	<input class="form-control" type="email" name="mailRespo">
+	              	</div>
+					<div class="form-group">
+	               		 Fonction précise dans la société:
+	                	<input class="form-control" type="text" name="fonctionRespo">
+	              	</div>
+				</fieldset>
+				<fieldset><legend>Stage:</legend>
+					<div class="form-group">
+						<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
+						<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
+					</div>
+					<div class="form-group">
+						Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
+					</div>
+					<div class="form-group">
+	                	<b>Indémnité de stage en euros, mensuelle brute:</b>
+	                	<input class="form-control" type="number" name="indemnite">
+	              	</div>
 								<div class="form-group">
 	                Avantages en nature en euros:
 	                <input class="form-control" type="number" name="avantage">
@@ -324,7 +324,7 @@
 	                Par quel moyen vous avez trouvé ce stage:
 	                <input class="form-control" type="number" name="trouveStage">
 	              </div>
-							</fieldset>
+				</fieldset>
 							<fieldset><legend>Annexe à la Déclaration de Stage</legend>
 								<div class="form-group">
 									Présentation succinte de l'Entreprise ou du Service:

@@ -102,16 +102,8 @@
               	<div class="row">
 	              	<c:forEach var = "eleve" items = "${eleves}">
 		              	<div class="imgElv col-lg-4 col-md-4 col-sm-4 col-xs-4">
-			              	<table>
-			              		<!-- <tr>
-			            			<td> -->
-			              				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><img class="img-rounded img-responsive petitesPhotosProfil" src="http://storage.iseplive.fr/avatars/${eleve.debutNumero}/${eleve.numero}.jpg" alt="valid"/></a>
-			              			<!-- </td>
-			              			<td> -->
-			              				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><c:out value = "${eleve.prenom} ${eleve.nom}" /></a>
-			              			<!-- </td>
-			              		</tr> -->
-			              	</table>
+              				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><img class="img-rounded img-responsive petitesPhotosProfil" src="http://storage.iseplive.fr/avatars/${eleve.debutNumero}/${eleve.numero}.jpg" alt="valid"/></a>
+              				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><c:out value = "${eleve.prenom} ${eleve.nom}" /></a>
 		              	</div>		
 					</c:forEach>
               	</div>
