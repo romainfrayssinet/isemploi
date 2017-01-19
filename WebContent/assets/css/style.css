@@ -1,0 +1,98 @@
+@font-face{
+    font-family: mainfont;
+    src: url(../fonts/aron_grotesque_regular.ttf);
+}
+
+
+body {
+  background-color: rgb(245, 245, 236) !important;
+  padding-top: 10px;
+  background-repeat: no-repeat;
+	background-size: cover;
+  width: 100%;
+  height: auto;
+  font-family: mainfont;
+
+}
+
+video#bgvid {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background-size: cover;
+  opacity: 0.9;
+}
+
+
+[class*="col-"], footer {
+  border: 2px solid black;
+  line-height: 40px;
+  text-align: center;
+  font-family: mainfont;
+}
+
+form.col-lg-6{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row{
+  margin: auto;
+}
+
+.container {
+  display: block;
+  vertical-align: center;
+  width: 30em;
+  padding-right: auto;
+  padding-left: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+
+input.form-control{
+  width: 200px;
+  margin: auto;
+}
+
+input {
+  padding-bottom: 0.3em;
+  border-bottom-style: solid;
+  border-bottom-color: #CCC;
+  border-bottom-width: 0.1em;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+}
+
+button{
+  border-radius: 6px;
+  background-color: white;
+}
+
+#titre{
+  position: relative;
+  color: black;
+  padding-left: auto;
+  padding-right: auto;
+  margin-top: 7em;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 25em;
+  }
+}

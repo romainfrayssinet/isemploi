@@ -11,6 +11,7 @@ public class DAOUtilitaires {
 		
 	public static Connection connexionBDD(){
 		Connection connexion = null;
+		
 		 String url = "jdbc:mysql://localhost:3306/isemploi"; //for SQL and oracle or any other db server this url differs. where ravi is the database name and 3306 is the port where mysql is running
 		 String username = "root"; //username of database user
 		 String password = "root"; //password
@@ -69,6 +70,10 @@ public class DAOUtilitaires {
 	            System.out.println("Échec de la fermeture de la connexion : " + e.getMessage());
 	        }
 	    }
+	}
+	
+	public static String capitalize(String str){
+		return str.substring(0, 1).toUpperCase() + str.substring(1);
 	}
 	
 	

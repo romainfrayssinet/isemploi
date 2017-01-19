@@ -85,4 +85,5 @@ public class LDAPObject implements Serializable
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
 }

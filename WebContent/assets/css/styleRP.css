@@ -1,0 +1,102 @@
+@font-face{
+    font-family: mainfont;
+    src: url(../fonts/aron_grotesque_regular.ttf);
+}
+body {
+  height: auto;
+  font-family: mainfont;
+}
+
+nav.col-lg-12{
+  background-image: url(http://orientation.blog.lemonde.fr/files/2014/04/Isep-b%C3%A2timent-Paris.jpg)!important;
+  background-repeat: no-repeat;
+  background-position: center;
+	background-size: cover;
+	height: 200px;
+}
+
+section.col-lg-9{
+  position: relative;
+  height: 200px;
+}
+.nav-tabs.nav-justified{
+  position: absolute;
+  bottom: 0px;
+}
+nav.col-lg-3{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+[class*="col-"], footer {
+  text-align: center;
+  font-family: mainfont;
+}
+
+.container button {
+  border-radius: none;
+}
+
+.petitesPhotosProfil{
+	width: 3em;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: mainfont;
+  position: relative;
+}
+div.tab-content{
+  padding-top: 10px;
+  text-align: justify;
+  font-family: mainfont;
+}
+div.modal-content{
+  text-align: left;
+  font-family: mainfont;
+}
+h4#myModalLabel{
+  text-align: center;
+  font-family: mainfont;
+}
+h2{
+  text-align: center;
+}
+div.buttons{
+  margin-left: 350px;
+}
+img.btnValid{
+  width: 13%;
+}
+img.img-rounded.img-responsive{
+  width: 70%;
+  max-width: 50%;
+}
+
+.img-responsive.logo-isep{
+  width: 25%;
+  padding: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    font-family: mainfont;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+    font-family: mainfont;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+    font-family: mainfont;
+  }
+}
