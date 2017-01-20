@@ -75,6 +75,26 @@ h4#myModalLabel{
 h2{
   text-align: center;
 }
+.btn{
+  background: black;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+.btn:hover{
+  border-color: black;
+  background-color:white;
+  color: black;
+  transition: all 0.3s ease 0s;
+}
+.btn.deco{
+  background: rgb(210,98,98);
+  color: white;
+  transition: all 0.3s ease 0s
+}
+.btn.deco:hover{
+  background-color:rgb(210,98,98,0.5);
+  transition: all 0.3s ease 0s;
+}
 legend.addBtn{
   position: relative;
 }
@@ -85,7 +105,14 @@ img.addBtn{
   cursor: pointer;
   padding-top: 5px;
 }
-img.supprBtn{
+.supprBtn{
+  width: 18px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.boutonAjoutCompetenceEleve{
+  background: url("${pageContext.request.contextPath}/assets/images/suppr.png"*);
+  border: none;
   width: 18px;
   cursor: pointer;
   margin-left: 5px;

@@ -67,6 +67,11 @@ form.login input[type="submit"]
     transition: all 0.3s ease 0s;
 }
 
+form input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+-webkit-text-fill-color: #828282 !important;
+}
+
 form.login input[type="submit"]:hover
 {
     background-color:white;

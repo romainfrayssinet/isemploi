@@ -73,9 +73,9 @@
 			</c:choose>
 
 
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
+        <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
 
-			  <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
+			  <button type="button" class="btn deco" style="opacity:0.8;">Déconnexion</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -443,7 +443,7 @@
                 </div>
               </div>
             </div>
-            
+
 	        <div class="modal fade" tabindex="-1" role="dialog" id="deconnexion">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
