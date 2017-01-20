@@ -83,6 +83,7 @@ img.addBtn{
   position: absolute;
   right: 0;
   cursor: pointer;
+  padding-top: 5px;
 }
 div.radio{
   margin-left: 350px;
@@ -98,12 +99,20 @@ img.img-rounded.img-responsive{
 }
 
 .ajoutComp{
-	width:70%;
+	width:90%;
+  margin-right: auto;
+  margin-left: auto;
 }
-
+.selectComp{
+  width:45%;
+  margin-right: auto;
+  margin-left: auto;
+}
 .ajoutExperienceDiv{
 	display: flex;
 	justify-content: space-between;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 footer{

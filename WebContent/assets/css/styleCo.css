@@ -50,25 +50,28 @@ form.login input[type="text"], form.login input[type="password"]
 
 form.login input[type="submit"]
 {
-    width: 100%;
+    width: 35%;
     font-family: mainfont;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 500;
-    margin-top: 16px;
+    margin: 16px auto;
+    display: block;
     outline: 0;
     cursor: pointer;
     letter-spacing: 1px;
     border-radius: 20px;
     border-color: black;
-    background: #F7F9F9;
-    color: black;
+    background: black;
+    color: white;
+    transition: all 0.3s ease 0s;
 }
 
 form.login input[type="submit"]:hover
 {
     background-color:white;
-    color: black
+    color: black;
+    transition: all 0.3s ease 0s;
 }
 
 form.login .remember-forgot

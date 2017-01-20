@@ -73,7 +73,9 @@
 			</c:choose>
 
 
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv">Modifier infos</button>
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
+
+			  <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -418,12 +420,12 @@
 	                    	<form method="post" action="">
 		                        <div class="form-group">
 			                        <p class="ajoutExperienceDiv">
-			                       		<select class="select" name="competence">
+			                       		<select class="form-control selectComp" name="competence">
 		              						<c:forEach var = "competence" items = "${competences}">
 		                					<option value = "${competence.id}" > ${competence.nom} </option>
 		              						</c:forEach>
 		            					</select>
-		            					<input type="submit" class="btn btn-primary" name="boutonAjoutCompetenceEleve" value="Ajouter">
+		            					<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusCmp" name="boutonAjoutCompetenceEleve"/>
 			                        </p>
 		                        </div>
 	                        </form>
@@ -432,14 +434,11 @@
 			                        <h4 class="modal-title" id="myModalLabel">Ou ajoutez-en une si elle n'apparaît pas ci-dessus !</h4>
 			                        <p class="ajoutExperienceDiv">
 			                        	<input type="text" class="form-control ajoutComp" name="newCompetenceBdd" value="">
-			                        	<input type="submit" class="btn btn-primary" name="boutonAjoutCompetenceEleveBdd" value="Ajouter">
+																<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusCmp" name="boutonAjoutCompetenceEleveBdd"/>
 			                        </p>
 		                        </div>
 	                        </form>
 	                  	</div>
-                      	<div class="modal-footer">
-                        	<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                      	</div>
                   </div>
                 </div>
               </div>
