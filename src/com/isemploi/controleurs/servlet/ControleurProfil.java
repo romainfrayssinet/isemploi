@@ -45,6 +45,11 @@ public class ControleurProfil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		
+		if (request.getParameter("boutonDeconnexion") != null){
+			Utilisateurs.deconnecterUtilisateur(session);
+			response.sendRedirect("accueil");
+		}
 	}
 
 }

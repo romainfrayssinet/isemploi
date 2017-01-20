@@ -96,6 +96,11 @@ public class ControleurAccueil extends HttpServlet {
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}
+		
+		if (request.getParameter("boutonDeconnexion") != null){
+			Utilisateurs.deconnecterUtilisateur(session);
+			response.sendRedirect("accueil");
+		}
 	}
 
 }

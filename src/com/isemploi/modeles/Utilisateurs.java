@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.isemploi.beans.Experience;
 import com.isemploi.beans.LDAPObject;
 import com.isemploi.beans.Utilisateur;
@@ -136,32 +138,36 @@ public class Utilisateurs{
 	
 	public static String connecterUtilisateur(String login){
 	
-	Connection connexion = null;
-	PreparedStatement requete = null;
-	ResultSet ResultatConnexion = null;
-	String mdp = null;
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		ResultSet ResultatConnexion = null;
+		String mdp = null;
+		
+		try{
+			connexion = connexionBDD();
+			
+			requete = initialiserRequete(connexion, "SELECT u_mdp FROM utilisateur WHERE u_login = ?", false, login);
+			ResultatConnexion = requete.executeQuery();
+			
+			while(ResultatConnexion.next()){
+			
+				mdp = ResultatConnexion.getString("u_mdp");
 	
-	try{
-		connexion = connexionBDD();
-		
-		requete = initialiserRequete(connexion, "SELECT u_mdp FROM utilisateur WHERE u_login = ?", false, login);
-		ResultatConnexion = requete.executeQuery();
-		
-		while(ResultatConnexion.next()){
-		
-			mdp = ResultatConnexion.getString("u_mdp");
-
+			}
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(ResultatConnexion);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
 		}
-	} catch(SQLException e){
-	} finally{
-		fermetureResultSet(ResultatConnexion);
-		fermetureStatement(requete);
-		fermetureConnexion(connexion);
+		
+		return mdp;
+	
 	}
 	
-	return mdp;
-	
-}
+	public static void deconnecterUtilisateur(HttpSession session){
+        session.invalidate();
+	}
 
 }
 

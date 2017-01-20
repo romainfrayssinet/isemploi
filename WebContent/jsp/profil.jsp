@@ -60,7 +60,7 @@
 	              		<p>${sessionScope.sessionUtilisateur.role}</p>
 				    </c:otherwise>
 				</c:choose>
-				<button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
         </nav>
 
         <section class="col-lg-9">
@@ -132,6 +132,26 @@
                 </c:forEach>
               </fieldset>
             </div>
+            
+           	<div class="modal fade" tabindex="-1" role="dialog" id="deconnexion">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Déconnexion</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p>Voulez-vous vraiment vous déconnecter ?</p>
+			      </div>
+			      <form method="post" action="">
+			      	<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+			        <input type="submit" name="boutonDeconnexion" class="btn btn-primary" value="Se déconnecter">
+			      </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
 
             <div id="contact" class="tab-pane fade">
               <div class="form-group">

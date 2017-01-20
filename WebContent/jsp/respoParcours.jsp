@@ -67,7 +67,7 @@
 			    </c:otherwise>
 			</c:choose>
               <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier les infos</button>
-              <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -99,6 +99,26 @@
                   </div>
                 </div>
               </div>
+              
+	          <div class="modal fade" tabindex="-1" role="dialog" id="deconnexion">
+		 		 <div class="modal-dialog" role="document">
+		    		<div class="modal-content">
+		      			<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        			<h4 class="modal-title">Déconnexion</h4>
+		      			</div>
+		      			<div class="modal-body">
+		        			<p>Voulez-vous vraiment vous déconnecter ?</p>
+		      			</div>
+		      			<form method="post" action="">
+		      				<div class="modal-footer">
+		        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+		       					<input type="submit" name="boutonDeconnexion" class="btn btn-primary" value="Se déconnecter">
+		      				</div>
+		      			</form>
+			    	</div>
+				  </div>
+				</div>
 
           </div>
         </nav>
@@ -176,6 +196,7 @@
                         <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
                         <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
                       </div>
+                     
 
                       <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                         <div class="modal-dialog" role="document">
