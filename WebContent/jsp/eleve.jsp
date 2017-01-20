@@ -20,8 +20,8 @@
 					</section>
 					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 						<ul class="nav nav-tabs nav-justified">
-							<li class="active"><a href="#profil">Profil</a></li>
-							<li><a href="#valid">Validation</a></li>
+							<li class="bar active"><a href="#profil">Profil</a></li>
+							<li class="bar"><a href="#valid">Validation</a></li>
 							<li class="bar"><a href="#contact">Contact</a></li>
 						</ul>
 					</section>
