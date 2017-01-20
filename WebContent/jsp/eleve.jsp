@@ -75,7 +75,7 @@
 
               <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
 
-			  <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
+			  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -449,15 +449,17 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">Modal title</h4>
+			        <h4 class="modal-title">Déconnexion</h4>
 			      </div>
 			      <div class="modal-body">
-			        <p>One fine body&hellip;</p>
+			        <p>Voulez-vous vraiment vous déconnecter ?</p>
 			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
+			      <form method="post" action="">
+			      	<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+			        <input type="submit" name="boutonDeconnexion" class="btn btn-primary" value="Se déconnecter">
 			      </div>
+			      </form>
 			    </div>
 			  </div>
 			</div>
