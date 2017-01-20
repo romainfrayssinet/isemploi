@@ -40,7 +40,6 @@
           <h2>${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</h2>
 
           <div class="infos">
-
 			<c:choose>
 				<c:when test = "${ empty sessionScope.sessionUtilisateur.profession }">
 	   				<p>Indiquez votre profession !<p>
@@ -68,6 +67,7 @@
 			    </c:otherwise>
 			</c:choose>
               <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier les infos</button>
+              <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -129,7 +129,7 @@
 		              	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><img class="img-rounded img-responsive petitesPhotosProfil" src="http://storage.iseplive.fr/avatars/${eleve.debutNumero}/${eleve.numero}.jpg" alt="valid"/></a>
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><c:out value = "${eleve.prenom} ${eleve.nom}" /></a>
-		              	</div>		
+		              	</div>
 					</c:forEach>
               	</div>
 

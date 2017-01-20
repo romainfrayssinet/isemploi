@@ -34,7 +34,6 @@
           <img src="${pageContext.request.contextPath}/assets/photosProfil/respoParcours.jpg" class="img-rounded img-responsive" alt="imageEleve" width="70%" style="margin-left: auto; margin-right: auto;">
           <h2>${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</h2>
           <div class="infos">
-
 				<c:choose>
 					<c:when test = "${ empty sessionScope.sessionUtilisateur.profession }">
 		   				<p>Indiquez votre profession !<p>
@@ -61,6 +60,9 @@
 	              		<p>${sessionScope.sessionUtilisateur.role}</p>
 				    </c:otherwise>
 				</c:choose>
+				
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier les infos</button>
+				<button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
         </nav>
 
         <section class="col-lg-9">
