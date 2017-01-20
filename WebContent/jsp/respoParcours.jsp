@@ -40,11 +40,33 @@
           <h2>${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</h2>
 
           <div class="infos">
+			<c:choose>
+				<c:when test = "${ empty sessionScope.sessionUtilisateur.profession }">
+	   				<p>Indiquez votre profession !<p>
+				</c:when>
+			    <c:otherwise>
+			     	<p>Parcours ${sessionScope.sessionUtilisateur.profession}</p>
+			    </c:otherwise>
+			</c:choose>
 
-              <p>Enseignant chercheur à l'ISEP</p>
-              <p>Paris, France</p>
-              <p>Responsable Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier infos</button>
+			<c:choose>
+				<c:when test = "${ empty sessionScope.sessionUtilisateur.lieuTravail }">
+					<p>Où travaillez-vous ?<p>
+				</c:when>
+			    <c:otherwise>
+              		<p>${sessionScope.sessionUtilisateur.lieuTravail}</p>
+			    </c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test = "${ empty sessionScope.sessionUtilisateur.role}">
+	   				<p>Quel est votre rôle au sein de l'ISEP ?<p>
+				</c:when>
+			    <c:otherwise>
+              		<p>${sessionScope.sessionUtilisateur.role}</p>
+			    </c:otherwise>
+			</c:choose>
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier les infos</button>
               <button type="button" class="btn btn-danger" style="opacity:0.8;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
@@ -53,24 +75,26 @@
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Modifier vos informations</h4>
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label for="profession">Modifier votre profession:</label>
-                          <input type="text" class="form-control" name="newProfession" value="Enseignant chercheur à l'ISEP">
-                        </div>
-                        <div class="form-group">
-                          <label for="lieu">Modifier le lieu où vous travaillez:</label>
-                          <input type="text" class="form-control" name="newLieu" value="Paris, France">
-                        </div>
-                        <div class="form-group">
-                          <label for="role">Modifier votre rôle au sein de l'ISEP:</label>
-                          <input type="text" class="form-control" name="newRole" value="Responsable Parcours Systèmes d'Information">
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary">Modifier</button>
-                      </div>
+                      <form method="post" action="">
+	                      <div class="modal-body">
+	                        <div class="form-group">
+	                          <label for="profession">Modifier votre profession:</label>
+	                          <input type="text" class="form-control" name="newProfession" value="${sessionScope.sessionUtilisateur.profession}">
+	                        </div>
+	                        <div class="form-group">
+	                          <label for="lieu">Modifier le lieu où vous travaillez:</label>
+	                          <input type="text" class="form-control" name="newLieu" value="${sessionScope.sessionUtilisateur.lieuTravail}">
+	                        </div>
+	                        <div class="form-group">
+	                          <label for="role">Modifier votre rôle au sein de l'ISEP:</label>
+	                          <input type="text" class="form-control" name="newRole" value="${sessionScope.sessionUtilisateur.role}">
+	                        </div>
+	                      </div>
+	                      <div class="modal-footer">
+	                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+	                        <input type="submit" name="boutonModifInfosRespos" class="btn btn-primary" value="Modifier">
+	                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>

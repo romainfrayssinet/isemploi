@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.isemploi.beans.Utilisateur;
 import com.isemploi.modeles.Eleves;
+import com.isemploi.modeles.Responsables;
 import com.isemploi.modeles.Utilisateurs;
 
 /**
@@ -36,7 +37,7 @@ public class ControleurAccueil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("sessionUtilisateur") == null){
-			this.getServletContext().getRequestDispatcher( "/jsp/accueil.jsp" ).forward(request, response);
+			response.sendRedirect("connexion");
 		} else {
 			
 			if (((Utilisateur) session.getAttribute("sessionUtilisateur")).getStatut().equals("eleve")){
@@ -90,6 +91,11 @@ public class ControleurAccueil extends HttpServlet {
 			response.sendRedirect("accueil");
 		}
 		
+		if (request.getParameter("boutonModifInfosRespos") != null){
+			Responsables.modifierInfosRespos(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newProfession"), request.getParameter("newLieu"), request.getParameter("newRole"));
+			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
+			response.sendRedirect("accueil");
+		}
 	}
 
 }

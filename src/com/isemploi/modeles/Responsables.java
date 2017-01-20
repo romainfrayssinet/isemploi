@@ -20,7 +20,7 @@ public class Responsables {
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_profession = ?, u_role = ?, u_lieu = ? WHERE u_login = ?", false, profession, lieu, role, login);
+			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_profession = ?, u_lieu = ?, u_role = ? WHERE u_login = ?", false, profession, lieu, role, login);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){
