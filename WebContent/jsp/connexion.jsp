@@ -23,29 +23,9 @@
                <input type="text" placeholder="Identifiant" name="identifiant"/>
                <input type="password" placeholder="Mot de Passe" name="mdp" />
                <input type="submit" value="Connexion" class="btn" />
-               <div class="remember-forgot">
-                 <div class="row">
-                   <div class="checkbox">
-                     <label><input type="checkbox" />Se souvenir de moi</label>
-                   </div>
-                 </div>
-               </div>
              </form>
            </div>
       </div>
     </div>
-		<footer>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					Salut
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					Salut
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					Salut
-				</div>
-			</div>
-		</footer>
   </body>
 </html>

@@ -55,7 +55,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test = "${ empty sessionScope.sessionUtilisateur.recherche }">
+				<c:when test = "${ empty sessionScope.sessionUtilisateur.lieuTravail }">
 					<p>Où travaillez-vous ?<p>
 				</c:when>
 			    <c:otherwise>
