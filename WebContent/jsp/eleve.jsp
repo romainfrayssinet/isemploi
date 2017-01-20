@@ -190,7 +190,7 @@
 				<ul>
 					<c:forEach var = "experience" items = "${experiences}">
 						<p>
-							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><br>
+							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/><br>
 							${experience.description}
 						</p>
 					</c:forEach>
@@ -198,12 +198,12 @@
               </fieldset>
               <fieldset><legend class="addBtn">Compétences:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutCompetence"/></legend>
                 <c:forEach var = "competence" items = "${competencesEleve}">
-               		#${competence.nom}
+               		#${competence.nom}<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/>
                 </c:forEach>
               </fieldset>
               <fieldset><legend class="addBtn">Intérêts:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutInteret"/></legend>
                	<c:forEach var = "interet" items = "${interetsEleve}">
-               		#${interet.nom}
+               		#${interet.nom}<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/>
                 </c:forEach>
               </fieldset>
             </div>
