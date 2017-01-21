@@ -94,7 +94,13 @@
                         </div>
                         <div class="form-group">
                           <label for="parcours">Modifier votre parcours:</label>
-                          <input type="text" class="form-control" name="newParcours" value="${sessionScope.sessionUtilisateur.parcours}">
+	                       	<p class="ajoutExperienceDiv">
+	                       		<select class="form-control selectComp" name="newParcours">
+	             					<c:forEach var = "unParcours" items = "${parcours}">
+	               						<option value = "${unParcours.id}" > ${unParcours.nom} </option>
+	             					</c:forEach>
+	           					</select>
+	                        </p>
                         </div>
                         <div class="form-group">
                           <label for="lieu">Modifier le lieu où vous étudiez:</label>

@@ -41,12 +41,14 @@ public class ControleurAccueil extends HttpServlet {
 		} else {
 			
 			if (((Utilisateur) session.getAttribute("sessionUtilisateur")).getStatut().equals("eleve")){
+				request.setAttribute("parcours", Utilisateurs.recupererParcours());
 				request.setAttribute("competences", Eleves.recupererCompetences(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("experiences", Eleves.recupererExperiences(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("interetsEleve", Eleves.recupererInterets(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("competencesEleve", Eleves.recupererCompetencesEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				this.getServletContext().getRequestDispatcher( "/jsp/eleve.jsp" ).forward(request, response);
 			} else{
+				request.setAttribute("parcours", Utilisateurs.recupererParcours());
 				request.setAttribute("eleves", Eleves.recupererEleves());
 				this.getServletContext().getRequestDispatcher( "/jsp/respoParcours.jsp" ).forward(request, response);
 			}
@@ -60,7 +62,7 @@ public class ControleurAccueil extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if (request.getParameter("boutonModifInfosEleve") != null){
-			Eleves.modifierInfosEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newStatut"), request.getParameter("newParcours"), request.getParameter("newLieu"), request.getParameter("newRecherche"), request.getParameter("newPromo"), request.getParameter("newPhone"), request.getParameter("newLinkedin"));
+			Eleves.modifierInfosEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newStatut"), Integer.parseInt(request.getParameter("newParcours")), request.getParameter("newLieu"), request.getParameter("newRecherche"), request.getParameter("newPromo"), request.getParameter("newPhone"), request.getParameter("newLinkedin"));
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}
@@ -92,7 +94,7 @@ public class ControleurAccueil extends HttpServlet {
 		}
 		
 		if (request.getParameter("boutonModifInfosRespos") != null){
-			Responsables.modifierInfosRespos(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newProfession"), request.getParameter("newLieu"), request.getParameter("newRole"));
+			Responsables.modifierInfosRespos(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newProfession"), request.getParameter("newLieu"), Integer.parseInt(request.getParameter("newParcours")));
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}

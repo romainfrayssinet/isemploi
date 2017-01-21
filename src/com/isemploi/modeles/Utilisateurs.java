@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.isemploi.beans.Experience;
 import com.isemploi.beans.LDAPObject;
+import com.isemploi.beans.Parcours;
 import com.isemploi.beans.Utilisateur;
 
 import static com.isemploi.dao.DAOUtilitaires.*;
@@ -110,7 +111,6 @@ public class Utilisateurs{
 				utilisateur.setNom(resultat.getString("u_nom"));
 				utilisateur.setStatut(resultat.getString("u_statut"));
 				utilisateur.setEmail(resultat.getString("u_email"));
-				utilisateur.setParcours(resultat.getString("u_parcours"));
 				utilisateur.setPhoto(resultat.getString("u_photo"));
 				utilisateur.setMdp(resultat.getString("u_mdp"));
 				utilisateur.setPromo(resultat.getString("u_promo"));
@@ -121,9 +121,25 @@ public class Utilisateurs{
 				utilisateur.setRecherche(resultat.getString("u_recherche"));
 				utilisateur.setSituation(resultat.getString("u_situation"));
 				utilisateur.setNumero(resultat.getString("u_numero"));
-				utilisateur.setRole(resultat.getString("u_role"));
 				utilisateur.setProfession(resultat.getString("u_profession"));
 				utilisateur.setDebutNumero(resultat.getString("u_numero").substring(0,2));
+				
+			}
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(resultat);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "SELECT * FROM parcours WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?)", false, login);
+			resultat = requete.executeQuery();
+			
+			while(resultat.next()){
+				
+				utilisateur.setParcours(resultat.getString("p_nom"));
 				
 			}
 		} catch(SQLException e){
@@ -167,6 +183,39 @@ public class Utilisateurs{
 	
 	public static void deconnecterUtilisateur(HttpSession session){
         session.invalidate();
+	}
+	
+	public static List<Parcours> recupererParcours(){
+		
+		List<Parcours> lesParcours = new ArrayList<Parcours>();
+		Connection connexion = null;
+		ResultSet resultat = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "SELECT * FROM parcours", false);
+			resultat = requete.executeQuery();
+			
+			while(resultat.next()){
+				
+				int id = resultat.getInt("p_id");
+				String nom = resultat.getString("p_nom");
+				
+				Parcours parcours = new Parcours();
+				parcours.setId(id);
+				parcours.setNom(nom);
+				lesParcours.add(parcours);
+				
+			}
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(resultat);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	
+		return lesParcours;
 	}
 
 }
