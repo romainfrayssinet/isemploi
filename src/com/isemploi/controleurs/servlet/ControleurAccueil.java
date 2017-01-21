@@ -60,7 +60,7 @@ public class ControleurAccueil extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if (request.getParameter("boutonModifInfosEleve") != null){
-			Eleves.modifierInfosEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newStatut"), request.getParameter("newParcours"), request.getParameter("newLieu"), request.getParameter("newRecherche"), request.getParameter("newPromo"), request.getParameter("newPhone"));
+			Eleves.modifierInfosEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("newStatut"), request.getParameter("newParcours"), request.getParameter("newLieu"), request.getParameter("newRecherche"), request.getParameter("newPromo"), request.getParameter("newPhone"), request.getParameter("newLinkedin"));
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}
@@ -97,10 +97,27 @@ public class ControleurAccueil extends HttpServlet {
 			response.sendRedirect("accueil");
 		}
 		
+		if (request.getParameter("boutonSupprimerExperience") != null){
+			Eleves.supprimerExperience(Integer.parseInt(request.getParameter("idExperience")));
+			response.sendRedirect("accueil");
+		}
+		
+		if (request.getParameter("boutonSupprimerCompetence") != null){
+			Eleves.supprimerCompetence(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), Integer.parseInt(request.getParameter("idCompetence")));
+			response.sendRedirect("accueil");
+		}
+		
+		if (request.getParameter("boutonSupprimerInteret") != null){
+			Eleves.supprimerInteret(Integer.parseInt(request.getParameter("idInteret")));
+			response.sendRedirect("accueil");
+		}
+		
 		if (request.getParameter("boutonDeconnexion") != null){
 			Utilisateurs.deconnecterUtilisateur(session);
 			response.sendRedirect("accueil");
 		}
+		
+		
 	}
 
 }

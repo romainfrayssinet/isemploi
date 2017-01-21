@@ -73,13 +73,8 @@
 			</c:choose>
 
 
-        <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
-
-<<<<<<< HEAD
-			  <button type="button" class="btn deco" style="opacity:0.8;">Déconnexion</button>
-=======
+        <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
 			  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
->>>>>>> branch 'master' of https://github.com/Fralax/ISEmPloi.git
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -106,12 +101,16 @@
                           <input type="text" class="form-control" name="newLieu" value="${sessionScope.sessionUtilisateur.lieuTravail}">
                         </div>
                         <div class="form-group">
-                          <label for="recherche">Que recherchez vous ?</label>
+                          <label for="recherche">Que recherchez vous ? (Laissez vide si vous ne recherchez rien)</label>
                           <input type="text" class="form-control" name="newRecherche" value="${sessionScope.sessionUtilisateur.recherche}">
                         </div>
                         <div class="form-group">
                           <label for="recherche">Téléphone:</label>
                           <input type="text" class="form-control" name="newPhone" value="${sessionScope.sessionUtilisateur.portable}">
+                        </div>
+                        <div class="form-group">
+                          <label for="recherche">Linkedin:</label>
+                          <input type="text" class="form-control" name="newLinkedin" value="${sessionScope.sessionUtilisateur.linkedin}">
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -194,20 +193,97 @@
 				<ul>
 					<c:forEach var = "experience" items = "${experiences}">
 						<p>
-							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/><br>
+							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" data-toggle="modal" data-target="#supprimerExperience${experience.id}"/><br>
 							${experience.description}
 						</p>
+						<div class="modal fade" tabindex="-1" role="dialog" id="supprimerExperience${experience.id}">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title">Supprimer une expérience</h4>
+						      </div>
+						      <div class="modal-body">
+						        <p>Voulez-vous vraiment supprimer votre expérience chez ${experience.entreprise} ?</p>
+						      </div>
+						      <form method="post" action="">
+						      	<input type="hidden" name="idExperience" value="${experience.id}">
+						      	<div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						        <input type="submit" name="boutonSupprimerExperience" class="btn btn-primary" value="Supprimer">
+						      </div>
+						      </form>
+						    </div>
+						  </div>
+						</div>			
 					</c:forEach>
 				</ul>
               </fieldset>
+              
               <fieldset><legend class="addBtn">Compétences:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutCompetence"/></legend>
                 <c:forEach var = "competence" items = "${competencesEleve}">
-               		#${competence.nom}<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/>
+                
+                	<span class="nomCompetence">
+                		#${competence.nom}
+                		<div class="boutonSupprimerCompetence">
+                			<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtnPetit" alt="supprXP" data-toggle="modal" data-target="#supprimerCompetence${competence.id}"/>
+                		</div>
+                	</span>	
+               		
+               		
+               		<div class="modal fade" tabindex="-1" role="dialog" id="supprimerCompetence${competence.id}">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title">Supprimer une compétence</h4>
+					      </div>
+					      <div class="modal-body">
+					        <p>Voulez-vous vraiment supprimer votre compétence : ${competence.nom} ?</p>
+					      </div>
+					      <form method="post" action="">
+					      	<input type="hidden" name="idCompetence" value="${competence.id}">
+					      	<div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					        <input type="submit" name="boutonSupprimerCompetence" class="btn btn-primary" value="Supprimer">
+					      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>	
                 </c:forEach>
               </fieldset>
+              
               <fieldset><legend class="addBtn">Intérêts:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutInteret"/></legend>
                	<c:forEach var = "interet" items = "${interetsEleve}">
-               		#${interet.nom}<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" name="modifInfos"/>
+               	
+               		<span class="nomInteret">
+               			#${interet.nom}
+               			<div class="boutonSupprimerInteret">
+               				<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtnPetit" alt="supprXP" data-toggle="modal" data-target="#supprimerInteret${interet.id}" />
+               			</div>
+               		</span>
+               		    		
+               		<div class="modal fade" tabindex="-1" role="dialog" id="supprimerInteret${interet.id}">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title">Supprimer un intérêt</h4>
+					      </div>
+					      <div class="modal-body">
+					        <p>Voulez-vous vraiment supprimer votre intérêt : ${interet.nom} ?</p>
+					      </div>
+					      <form method="post" action="">
+					      	<input type="hidden" name="idInteret" value="${interet.id}">
+					      	<div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					        <input type="submit" name="boutonSupprimerInteret" class="btn btn-primary" value="Supprimer">
+					      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
                 </c:forEach>
               </fieldset>
             </div>

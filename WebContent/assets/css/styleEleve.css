@@ -75,8 +75,8 @@ h4#myModalLabel{
 h2{
   text-align: center;
 }
-.btn{
-  background: black;
+/* .btn{
+  background-color: black;
   color: white;
   transition: all 0.3s ease 0s;
 }
@@ -94,7 +94,21 @@ h2{
 .btn.deco:hover{
   background-color:rgb(210,98,98,0.5);
   transition: all 0.3s ease 0s;
+} */
+
+.nomCompetence, .nomInteret{
+	position : relative;
+	margin-right : 15px;
 }
+
+.boutonSupprimerCompetence, .boutonSupprimerInteret{
+   position:absolute;
+   top: -5px;
+   right: -3px;
+   width : 5px;
+   height : 5px;
+}
+
 legend.addBtn{
   position: relative;
 }
@@ -110,6 +124,12 @@ img.addBtn{
   cursor: pointer;
   margin-left: 5px;
 }
+
+.supprBtnPetit{
+	width: 12px;
+  	cursor: pointer;
+}
+
 .boutonAjoutCompetenceEleve{
   background: url("${pageContext.request.contextPath}/assets/images/suppr.png"*);
   border: none;

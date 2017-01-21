@@ -71,6 +71,7 @@ public class Eleves {
 			
 			while(resultat.next()){
 				
+				int id = resultat.getInt("e_id");
 				String type = resultat.getString("e_type");
 				String entreprise = resultat.getString("e_entreprise");
 				String duree = resultat.getString("e_duree");
@@ -78,6 +79,7 @@ public class Eleves {
 				String description = resultat.getString("e_description");
 				
 				Experience experience = new Experience();
+				experience.setId(id);
 				experience.setLogin(login);
 				experience.setType(type);
 				experience.setEntreprise(entreprise);
@@ -112,6 +114,7 @@ public class Eleves {
 			while(resultat.next()){
 				
 				Interet interet = new Interet();
+				interet.setId(resultat.getInt("i_id"));
 				interet.setNom(resultat.getString("i_nom"));
 				interets.add(interet);
 				
@@ -126,13 +129,13 @@ public class Eleves {
 		return interets;
 	}
 	
-	public static void modifierInfosEleve(String login, String situation, String parcours, String lieu, String recherche, String promotion, String portable){
+	public static void modifierInfosEleve(String login, String situation, String parcours, String lieu, String recherche, String promotion, String portable, String linkedin){
 		Connection connexion = null;
 		PreparedStatement requete = null;
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_situation = ?, u_parcours = ?, u_lieu = ?, u_recherche = ?, u_promo = ?, u_portable = ? WHERE u_login = ?", false, situation, parcours, lieu, recherche, promotion, portable, login);
+			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_situation = ?, u_parcours = ?, u_lieu = ?, u_recherche = ?, u_promo = ?, u_portable = ?, u_linkedin = ? WHERE u_login = ?", false, situation, parcours, lieu, recherche, promotion, portable, linkedin, login);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){
@@ -149,6 +152,54 @@ public class Eleves {
 		try{
 			connexion = connexionBDD();
 			requete = initialiserRequete(connexion, "INSERT INTO experience (e_login, e_entreprise, e_poste, e_duree, e_description, e_type) VALUES(?, ?, ?, ?, ?, ?)", false, login, entreprise, poste, duree, description, type);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
+	public static void supprimerExperience(int idExperience){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "DELETE FROM experience WHERE e_id = ?", false, idExperience);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
+	public static void supprimerCompetence(String login, int idCompetence){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "DELETE FROM competence_utilisateur WHERE u_login = ? AND c_id = ?", false, login, idCompetence);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
+	public static void supprimerInteret(int idInteret){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "DELETE FROM interet WHERE i_id = ?", false, idInteret);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){
@@ -241,7 +292,7 @@ public class Eleves {
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "SELECT * FROM competence WHERE c_id NOT IN (SELECT c_id FROM competence_utilisateur WHERE u_login = ?)", false, login);
+			requete = initialiserRequete(connexion, "SELECT * FROM competence WHERE c_id NOT IN (SELECT c_id FROM competence_utilisateur WHERE u_login = ?) ORDER BY c_nom", false, login);
 			resultat = requete.executeQuery();
 			
 			while(resultat.next()){
