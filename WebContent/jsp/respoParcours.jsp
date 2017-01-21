@@ -66,7 +66,7 @@
               		<p>${sessionScope.sessionUtilisateur.role}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier les infos</button>
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
