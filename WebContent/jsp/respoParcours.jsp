@@ -165,10 +165,10 @@
 
               <div class="col-sm-3">
                 <ul class="nav nav-pills nav-stacked ">
-                <li class="active"><a data-toggle="pill" href="#valid1">
-                  <b>William Duvant</b><br>
-                  Stage chez Ubisoft
-                </a></li>
+                  <li class="active"><a data-toggle="pill" href="#valid1">
+                    <b>William Duvant</b><br>
+                    Stage chez Ubisoft
+                  </a></li>
                   <li><a data-toggle="pill" href="#valid2">
                     <b>William Duvant</b><br>
                     Stage chez Ubisoft
@@ -237,7 +237,7 @@
 
                   </div>
 
-                  <div id="valid2"class="tab-pane fade">
+                  <div id="valid2" class="tab-pane fade">
                     <p>
                       <u>Entreprise:</u> Ubisoft <br>
                       <br>

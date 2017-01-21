@@ -295,146 +295,169 @@
             </div>
 
             <div id="valid" class="tab-pane fade">
+
               <h2><b>Déclaration de stage</b></h2><br>
-							<div class="radio">
-								<label class="radio-inline"><input type="radio" name="optradio">A2</label>
-								<label class="radio-inline"><input type="radio" name="optradio">A3</label>
-								<label class="radio-inline"><input type="radio" name="optradio">Césure</label>
-								<label class="radio-inline"><input type="radio" name="optradio">Msc</label>
+
+							<ul class="nav nav-pills">
+  							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
+  							<li><a data-toggle="pill" href="#entreprise">Entreprise</a></li>
+  							<li><a data-toggle="pill" href="#respoStage">Responsable de stage</a></li>
+  							<li><a data-toggle="pill" href="#stage">Stage</a></li>
+								<li><a data-toggle="pill" href="#annexe">Annexe</a></li>
+							</ul>
+
+							<div class="tab-content">
+								<div id="eleve" class="tab-pane fade in active">
+									<div class="radio">
+										<label class="radio-inline"><input type="radio" name="optradio">A2</label>
+										<label class="radio-inline"><input type="radio" name="optradio">A3</label>
+										<label class="radio-inline"><input type="radio" name="optradio">Césure</label>
+										<label class="radio-inline"><input type="radio" name="optradio">Msc</label>
+									</div>
+									<fieldset><legend>Elève:</legend>
+										<div class="form-group">
+											<u>Nom et Prénom:</u> ${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom} <br>
+										</div>
+										<div class="form-group">
+											<u>Parcours:</u> ${sessionScope.sessionUtilisateur.parcours}<br>
+										</div>
+										<div class="form-group">
+			                <u>N° de sécurité sociale:</u>
+			                <input class="form-control" type="text" name="numSecu">
+			              </div>
+										<div class="form-group">
+			                <u>Adresse durant le stage (si différent de l'actuelle):</u>
+			                <input class="form-control" type="text" name="adresse">
+			              </div>
+										<div class="form-group">
+			                <u>Adresse e-mail:</u>
+			                ${sessionScope.sessionUtilisateur.email}
+			              </div>
+										<div class="form-group">
+			                <u>Tél. portable:</u>
+			                ${sessionScope.sessionUtilisateur.portable}
+			              </div>
+									</fieldset>
+								</div>
+
+								<div id="entreprise" class="tab-pane fade">
+									<fieldset><legend>Entreprise:</legend>
+										<div class="form-group">
+											<b>Numéro SIRET de l'Entreprise:</b>
+											<input class="form-control" type="number" name="siret">
+										</div>
+										<div class="form-group">
+			                <b>Code APE:</b>
+			                <input class="form-control" type="number" name="ape">
+			              </div>
+										<div class="form-group">
+			              	Nom et adresse (A) de la société signataire de la convention ou du contrat:
+			                <input class="form-control" type="text" name="adresseEntreprise">
+			              </div>
+										<div class="form-group">
+			              	Adresse (B) complète du lieu du stage (si différente de l'adresse A):
+			                <input class="form-control" type="text" name="adresseStage">
+			              </div>
+										<div class="form-group">
+			              	Nom du service d'accueil dans la société:
+			                <input class="form-control" type="text" name="nomServiceAccueil">
+			              </div>
+										<div class="form-group">
+			                Standard Téléphonique <u>du lieu du stage</u>:
+			                <input class="form-control" type="tel" name="telStage">
+			              </div>
+										<div class="form-group">
+			                Nom et prénom adresse (C) de la personne à qui il faut adresse la convention de stage le cas échéant:
+			                <input class="form-control" type="text" name="contactConvention">
+			              </div>
+										<div class="form-group">
+			                N° de Tél.:
+			                <input class="form-control" type="tel" name="telConvention">
+			              </div>
+										<div class="form-group">
+			                <b>Adresse e-mail:</b>
+			                <input class="form-control" type="email" name="mailConvention">
+			              </div>
+									</fieldset>
+								</div>
+
+								<div id="respoStage" class="tab-pane fade">
+									<fieldset><legend>Responsable de stage:</legend>
+										<div class="form-group">
+											Nom: <input class="form-control" type="text" name="nomRespo">
+											Prénom: <input class="form-control" type="text" name="prenomRespo">
+										</div>
+										<div class="form-group">
+											N° de Tél.:<input class="form-control" type="tel" name="telRespo">
+										</div>
+										<div class="form-group">
+											<b>Adresse e-mail:</b><input class="form-control" type="email" name="mailRespo">
+										</div>
+										<div class="form-group">
+											Fonction précise dans la société:<input class="form-control" type="text" name="fonctionRespo">
+										</div>
+									</fieldset>
+								</div>
+
+								<div id="stage" class="tab-pane fade">
+									<fieldset><legend>Stage:</legend>
+										<div class="form-group">
+											<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
+											<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
+										</div>
+										<div class="form-group">
+											Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
+										</div>
+										<div class="form-group">
+						        	<b>Indémnité de stage en euros, mensuelle brute:</b>
+						          <input class="form-control" type="number" name="indemnite">
+						        </div>
+										<div class="form-group">
+						          Avantages en nature en euros:
+						        	<input class="form-control" type="number" name="avantage">
+						        </div>
+										<div class="form-group">
+											A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
+											<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+										</div>
+										<div class="form-group">
+						          Déplacement à l'étranger au cours du stage (effectué en France):
+											<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+						        </div>
+										<div class="form-group">
+						          Par quel moyen vous avez trouvé ce stage:
+						          <input class="form-control" type="number" name="trouveStage">
+						        </div>
+									</fieldset>
+								</div>
+
+								<div id="annexe" class="tab-pane fade">
+									<fieldset><legend>Annexe à la Déclaration de Stage</legend>
+										<div class="form-group">
+											Présentation succinte de l'Entreprise ou du Service:
+											<textarea class="form-control" name="prezEntreprise" rows="8" cols="70"></textarea>
+										</div>
+										<div class="form-group">
+											Contexte dans lequel s'intégre le stage:
+											<textarea class="form-control" name="contexteStage" rows="8" cols="70"></textarea>
+										</div>
+										<div class="form-group">
+											Mission confiée au stagiaire - Objectifs:
+											<textarea class="form-control" name="missionStage" rows="8" cols="70"></textarea>
+										</div>
+										<div class="form-group">
+											Si possible, principales étapes du stage:
+											<textarea class="form-control" name="etapeStage" rows="8" cols="70"></textarea>
+										</div>
+										<div class="form-group">
+											Connaissances requises:
+											<textarea class="form-control" name="connaissanceReq" rows="8" cols="70"></textarea>
+										</div>
+									</fieldset>
+								</div>
 							</div>
-							<fieldset><legend>Elève:</legend>
-								<div class="form-group">
-									<u>Nom et Prénom:</u> ${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom} <br>
-								</div>
-								<div class="form-group">
-									<u>Parcours:</u> ${sessionScope.sessionUtilisateur.parcours}<br>
-								</div>
-								<div class="form-group">
-	                <u>N° de sécurité sociale:</u>
-	                <input class="form-control" type="text" name="numSecu">
-	              </div>
-								<div class="form-group">
-	                <u>Adresse durant le stage (si différent de l'actuelle):</u>
-	                <input class="form-control" type="text" name="adresse">
-	              </div>
-								<div class="form-group">
-	                <u>Adresse e-mail:</u>
-	                ${sessionScope.sessionUtilisateur.email}
-	              </div>
-								<div class="form-group">
-	                <u>Tél. portable:</u>
-	                ${sessionScope.sessionUtilisateur.portable}
-	              </div>
-							</fieldset>
-							<fieldset><legend>Entreprise:</legend>
-								<div class="form-group">
-									<b>Numéro SIRET de l'Entreprise:</b>
-									<input class="form-control" type="number" name="siret">
-								</div>
-								<div class="form-group">
-	                <b>Code APE:</b>
-	                <input class="form-control" type="number" name="ape">
-	              </div>
-								<div class="form-group">
-	              	Nom et adresse (A) de la société signataire de la convention ou du contrat:
-	                <input class="form-control" type="text" name="adresseEntreprise">
-	              </div>
-								<div class="form-group">
-	              	Adresse (B) complète du lieu du stage (si différente de l'adresse A):
-	                <input class="form-control" type="text" name="adresseStage">
-	              </div>
-								<div class="form-group">
-	              	Nom du service d'accueil dans la société:
-	                <input class="form-control" type="text" name="nomServiceAccueil">
-	              </div>
-								<div class="form-group">
-	                Standard Téléphonique <u>du lieu du stage</u>:
-	                <input class="form-control" type="tel" name="telStage">
-	              </div>
-								<div class="form-group">
-	                Nom et prénom adresse (C) de la personne à qui il faut adresse la convention de stage le cas échéant:
-	                <input class="form-control" type="text" name="contactConvention">
-	              </div>
-								<div class="form-group">
-	                N° de Tél.:
-	                <input class="form-control" type="tel" name="telConvention">
-	              </div>
-								<div class="form-group">
-	                <b>Adresse e-mail:</b>
-	                <input class="form-control" type="email" name="mailConvention">
-	              </div>
-				</fieldset>
-				<fieldset><legend>Responsable de stage:</legend>
-					<div class="form-group">
-						Nom: <input class="form-control" type="text" name="nomRespo">
-						Prénom: <input class="form-control" type="text" name="prenomRespo">
-					</div>
-					<div class="form-group">
-	                	N° de Tél.:
-	                	<input class="form-control" type="tel" name="telRespo">
-	             	 </div>
-					<div class="form-group">
-	                	<b>Adresse e-mail:</b>
-	                	<input class="form-control" type="email" name="mailRespo">
-	              	</div>
-					<div class="form-group">
-	               		 Fonction précise dans la société:
-	                	<input class="form-control" type="text" name="fonctionRespo">
-	              	</div>
-				</fieldset>
-				<fieldset><legend>Stage:</legend>
-					<div class="form-group">
-						<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
-						<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
-					</div>
-					<div class="form-group">
-						Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
-					</div>
-					<div class="form-group">
-	                	<b>Indémnité de stage en euros, mensuelle brute:</b>
-	                	<input class="form-control" type="number" name="indemnite">
-	              	</div>
-								<div class="form-group">
-	                Avantages en nature en euros:
-	                <input class="form-control" type="number" name="avantage">
-	              </div>
-								<div class="form-group">
-									A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
-									<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-									<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
-								</div>
-								<div class="form-group">
-	                Déplacement à l'étranger au cours du stage (effectué en France):
-									<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-									<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
-	              </div>
-								<div class="form-group">
-	                Par quel moyen vous avez trouvé ce stage:
-	                <input class="form-control" type="number" name="trouveStage">
-	              </div>
-				</fieldset>
-							<fieldset><legend>Annexe à la Déclaration de Stage</legend>
-								<div class="form-group">
-									Présentation succinte de l'Entreprise ou du Service:
-									<textarea class="form-control" name="prezEntreprise" rows="8" cols="70"></textarea>
-								</div>
-								<div class="form-group">
-									Contexte dans lequel s'intégre le stage:
-									<textarea class="form-control" name="contexteStage" rows="8" cols="70"></textarea>
-								</div>
-								<div class="form-group">
-									Mission confiée au stagiaire - Objectifs:
-									<textarea class="form-control" name="missionStage" rows="8" cols="70"></textarea>
-								</div>
-								<div class="form-group">
-									Si possible, principales étapes du stage:
-									<textarea class="form-control" name="etapeStage" rows="8" cols="70"></textarea>
-								</div>
-								<div class="form-group">
-									Connaissances requises:
-									<textarea class="form-control" name="connaissanceReq" rows="8" cols="70"></textarea>
-								</div>
-							</fieldset>
 
               <button type="button" class="btn btn-primary">Envoyer</button>
             </div>
@@ -580,12 +603,23 @@
                   $(this).tab('show');
               });
           });
+
           </script>
-			<footer class="col-lg-12">
-					© Griffons Corp.2016
-			</footer>
+					<footer class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+								<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+								Copyright (c) 2016 Isemploi by ISEP. Tout droits réservés.
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+								<img src="${pageContext.request.contextPath}\assets\images\logo-isep.png" class="logoIsep" alt="logo ISEP">
+							</div>
+						</div>
+					</footer>
         </section>
       </div>
     </div>
-</body>
+	</body>
 </html>

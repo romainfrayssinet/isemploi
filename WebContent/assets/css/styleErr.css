@@ -1,0 +1,10 @@
+@font-face{
+    font-family: mainfont;
+    src: url(../fonts/aron_grotesque_regular.ttf);
+}
+body{
+  font-family: mainfont;
+}
+img{
+  width: 30%;
+}

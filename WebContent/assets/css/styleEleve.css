@@ -2,9 +2,13 @@
     font-family: mainfont;
     src: url(../fonts/aron_grotesque_regular.ttf);
 }
-
+html{
+  height: 100%;
+  width: 100%;
+}
 body {
-  height: auto;
+  height: 100%;
+  width: 100%;
   font-family: mainfont;
 }
 a {
@@ -61,11 +65,22 @@ nav.col-lg-3{
   margin-left: auto;
   margin-right: auto;
   font-family: mainfont;
+  height: 100%;
+  width: 100%;
+}
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+}
+.nav-tabs, .nav-pills {
+    text-align:center;
 }
 div.tab-content{
+  min-height: 100%;
   padding-top: 10px;
   text-align: justify;
   font-family: mainfont;
+  padding-bottom: 10px;
 }
 div.modal-content{
   text-align: left;
@@ -173,14 +188,24 @@ img.img-rounded.img-responsive{
   margin-top: auto;
   margin-bottom: auto;
 }
-
+.col-lg-4{
+	padding-top: 8px;
+}
+.logoIsep{
+  paddin-top: 3px;
+  width: inherit;
+}
+.logoIsemploi{
+  width: 18%;
+  padding-bottom: 3px;
+}
 footer{
   background:#F7F9F9;
-  position:absolute;
-  bottom:0;
   width:100%;
   font-family: mainfont;
-  text-align: center;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
 }
 @media (min-width: 768px) {
   .container {
