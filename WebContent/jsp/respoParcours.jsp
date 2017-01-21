@@ -45,7 +45,7 @@
 	   				<p>Indiquez votre profession !<p>
 				</c:when>
 			    <c:otherwise>
-			     	<p>Parcours ${sessionScope.sessionUtilisateur.profession}</p>
+			     	<p>${sessionScope.sessionUtilisateur.profession}</p>
 			    </c:otherwise>
 			</c:choose>
 
@@ -59,14 +59,14 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test = "${ empty sessionScope.sessionUtilisateur.role}">
-	   				<p>Quel est votre rôle au sein de l'ISEP ?<p>
+				<c:when test = "${ empty sessionScope.sessionUtilisateur.parcours}">
+	   				<p>A quel parcours êtes-vous rattaché(e) ?<p>
 				</c:when>
 			    <c:otherwise>
-              		<p>${sessionScope.sessionUtilisateur.role}</p>
+              		<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier les infos</button>
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
@@ -86,8 +86,14 @@
 	                          <input type="text" class="form-control" name="newLieu" value="${sessionScope.sessionUtilisateur.lieuTravail}">
 	                        </div>
 	                        <div class="form-group">
-	                          <label for="role">Modifier votre rôle au sein de l'ISEP:</label>
-	                          <input type="text" class="form-control" name="newRole" value="${sessionScope.sessionUtilisateur.role}">
+	                          <label for="parcours">A quel parcours êtes-vous rattaché(e) ?</label>
+		                       	<p class="ajoutExperienceDiv">
+		                       		<select class="form-control selectComp" name="newParcours">
+		             					<c:forEach var = "unParcours" items = "${parcours}">
+		               						<option value = "${unParcours.id}" > ${unParcours.nom} </option>
+		             					</c:forEach>
+		           					</select>
+		                        </p>
 	                        </div>
 	                      </div>
 	                      <div class="modal-footer">

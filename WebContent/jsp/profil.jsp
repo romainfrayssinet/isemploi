@@ -39,7 +39,7 @@
 		   				<p>Indiquez votre profession !<p>
 					</c:when>
 				    <c:otherwise>
-				     	<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
+				     	<p>${sessionScope.sessionUtilisateur.profession}</p>
 				    </c:otherwise>
 				</c:choose>
 	
@@ -53,11 +53,11 @@
 				</c:choose>
 	
 				<c:choose>
-					<c:when test = "${ empty sessionScope.sessionUtilisateur.role}">
-		   				<p>Quel est votre rôle au sein de l'ISEP ?<p>
+					<c:when test = "${ empty sessionScope.sessionUtilisateur.parcours}">
+		   				<p>A quel parcours êtes-vous rattaché(e) ?<p>
 					</c:when>
 				    <c:otherwise>
-	              		<p>${sessionScope.sessionUtilisateur.role}</p>
+	              		<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 				    </c:otherwise>
 				</c:choose>
 				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>

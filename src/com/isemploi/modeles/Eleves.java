@@ -129,13 +129,13 @@ public class Eleves {
 		return interets;
 	}
 	
-	public static void modifierInfosEleve(String login, String situation, String parcours, String lieu, String recherche, String promotion, String portable, String linkedin){
+	public static void modifierInfosEleve(String login, String situation, int parcours, String lieu, String recherche, String promotion, String portable, String linkedin){
 		Connection connexion = null;
 		PreparedStatement requete = null;
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_situation = ?, u_parcours = ?, u_lieu = ?, u_recherche = ?, u_promo = ?, u_portable = ?, u_linkedin = ? WHERE u_login = ?", false, situation, parcours, lieu, recherche, promotion, portable, linkedin, login);
+			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_situation = ?, p_id = ?, u_lieu = ?, u_recherche = ?, u_promo = ?, u_portable = ?, u_linkedin = ? WHERE u_login = ?", false, situation, parcours, lieu, recherche, promotion, portable, linkedin, login);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){

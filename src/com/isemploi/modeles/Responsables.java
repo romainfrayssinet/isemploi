@@ -14,13 +14,13 @@ import com.mysql.jdbc.Connection;
 
 public class Responsables {
 
-	public static void modifierInfosRespos(String login, String profession, String lieu, String role){
+	public static void modifierInfosRespos(String login, String profession, String lieu, int parcours){
 		Connection connexion = null;
 		PreparedStatement requete = null;
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_profession = ?, u_lieu = ?, u_role = ? WHERE u_login = ?", false, profession, lieu, role, login);
+			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_profession = ?, u_lieu = ?, p_id = ? WHERE u_login = ?", false, profession, lieu, parcours, login);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){
