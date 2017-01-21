@@ -7,6 +7,10 @@ body {
   font-family: mainfont;
 }
 
+a {
+  color: black;
+}
+
 nav.col-lg-12{
   background-image: url(http://orientation.blog.lemonde.fr/files/2014/04/Isep-b%C3%A2timent-Paris.jpg)!important;
   background-repeat: no-repeat;
@@ -30,12 +34,16 @@ section.col-lg-9{
 	background: #F7F9F9;
 	opacity: 0.9;
 	border-radius: 2px;
+  color: black;
 }
 nav.col-lg-3{
+  max-width: 250px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
-[class*="col-"], footer {
+[class*="col-"]{
   text-align: center;
   font-family: mainfont;
 }

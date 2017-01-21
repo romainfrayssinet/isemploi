@@ -66,8 +66,8 @@
               		<p>${sessionScope.sessionUtilisateur.role}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier les infos</button>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
+              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier les infos</button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -99,7 +99,7 @@
                   </div>
                 </div>
               </div>
-              
+
 	          <div class="modal fade" tabindex="-1" role="dialog" id="deconnexion">
 		 		 <div class="modal-dialog" role="document">
 		    		<div class="modal-content">
@@ -113,7 +113,7 @@
 		      			<form method="post" action="">
 		      				<div class="modal-footer">
 		        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-		       					<input type="submit" name="boutonDeconnexion" class="btn btn-primary" value="Se déconnecter">
+		       					<input type="submit" name="boutonDeconnexion" class="btn btn-danger" value="Se déconnecter" style="opacity:0.9;">
 		      				</div>
 		      			</form>
 			    	</div>
@@ -196,7 +196,7 @@
                         <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
                         <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
                       </div>
-                     
+
 
                       <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                         <div class="modal-dialog" role="document">

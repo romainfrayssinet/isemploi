@@ -74,7 +74,7 @@
 
 
         <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
-			  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.8;">Déconnexion</button>
+			  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -193,7 +193,7 @@
 				<ul>
 					<c:forEach var = "experience" items = "${experiences}">
 						<p>
-							<u>${experience.type} chez ${experience.entreprise} : ${experience.poste} pendant ${experience.duree}</u><img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" data-toggle="modal" data-target="#supprimerExperience${experience.id}"/><br>
+							<u>${experience.type} chez ${experience.entreprise} :</u> ${experience.poste} pendant ${experience.duree}<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtn" alt="supprXP" data-toggle="modal" data-target="#supprimerExperience${experience.id}"/><br>
 							${experience.description}
 						</p>
 						<div class="modal fade" tabindex="-1" role="dialog" id="supprimerExperience${experience.id}">
@@ -215,22 +215,22 @@
 						      </form>
 						    </div>
 						  </div>
-						</div>			
+						</div>
 					</c:forEach>
 				</ul>
               </fieldset>
-              
+
               <fieldset><legend class="addBtn">Compétences:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutCompetence"/></legend>
                 <c:forEach var = "competence" items = "${competencesEleve}">
-                
+
                 	<span class="nomCompetence">
                 		#${competence.nom}
                 		<div class="boutonSupprimerCompetence">
                 			<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtnPetit" alt="supprXP" data-toggle="modal" data-target="#supprimerCompetence${competence.id}"/>
                 		</div>
-                	</span>	
-               		
-               		
+                	</span>
+
+
                		<div class="modal fade" tabindex="-1" role="dialog" id="supprimerCompetence${competence.id}">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -250,20 +250,20 @@
 					      </form>
 					    </div>
 					  </div>
-					</div>	
+					</div>
                 </c:forEach>
               </fieldset>
-              
+
               <fieldset><legend class="addBtn">Intérêts:<img src="${pageContext.request.contextPath}/assets/images/plus.png" class="addBtn" alt="plusXP" name="modifInfos" data-toggle="modal" data-target="#ajoutInteret"/></legend>
                	<c:forEach var = "interet" items = "${interetsEleve}">
-               	
+
                		<span class="nomInteret">
                			#${interet.nom}
                			<div class="boutonSupprimerInteret">
                				<img src="${pageContext.request.contextPath}/assets/images/suppr.png" class="supprBtnPetit" alt="supprXP" data-toggle="modal" data-target="#supprimerInteret${interet.id}" />
                			</div>
                		</span>
-               		    		
+
                		<div class="modal fade" tabindex="-1" role="dialog" id="supprimerInteret${interet.id}">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -537,7 +537,7 @@
 			      <form method="post" action="">
 			      	<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-			        <input type="submit" name="boutonDeconnexion" class="btn btn-primary" value="Se déconnecter">
+			        <input type="submit" name="boutonDeconnexion" class="btn btn-danger" value="Se déconnecter" style="opacity:0.9;">
 			      </div>
 			      </form>
 			    </div>
