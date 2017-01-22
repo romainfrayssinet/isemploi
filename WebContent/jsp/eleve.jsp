@@ -73,8 +73,8 @@
 			</c:choose>
 
 
-        <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
-			  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
+        <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoElv" style="opacity:0.9;">Modifier infos</button>
+			  <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
 			  <div class="modal fade" id="modifInfoElv" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -120,8 +120,8 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        <input type="submit" name="boutonModifInfosEleve" class="btn btn-primary">
+                        <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
+                        <input type="submit" name="boutonModifInfosEleve" class="btn">
                       </div>
                       </form>
                     </div>
@@ -215,8 +215,8 @@
 						      <form method="post" action="">
 						      	<input type="hidden" name="idExperience" value="${experience.id}">
 						      	<div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						        <input type="submit" name="boutonSupprimerExperience" class="btn btn-primary" value="Supprimer">
+						        <button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
+						        <input type="submit" name="boutonSupprimerExperience" class="btn" value="Supprimer">
 						      </div>
 						      </form>
 						    </div>
@@ -250,8 +250,8 @@
 					      <form method="post" action="">
 					      	<input type="hidden" name="idCompetence" value="${competence.id}">
 					      	<div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-					        <input type="submit" name="boutonSupprimerCompetence" class="btn btn-primary" value="Supprimer">
+					        <button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
+					        <input type="submit" name="boutonSupprimerCompetence" class="btn" value="Supprimer">
 					      </div>
 					      </form>
 					    </div>
@@ -283,8 +283,8 @@
 					      <form method="post" action="">
 					      	<input type="hidden" name="idInteret" value="${interet.id}">
 					      	<div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-					        <input type="submit" name="boutonSupprimerInteret" class="btn btn-primary" value="Supprimer">
+					        <button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
+					        <input type="submit" name="boutonSupprimerInteret" class="btn" value="Supprimer">
 					      </div>
 					      </form>
 					    </div>
@@ -311,10 +311,10 @@
 								<div class="tab-content">
 									<div id="eleve" class="tab-pane fade in active">
 										<div class="radio">
-											<label class="radio-inline"><input type="radio" name="optradioA2">A2</label>
-											<label class="radio-inline"><input type="radio" name="optradioA3">A3</label>
-											<label class="radio-inline"><input type="radio" name="optradioCesure">Césure</label>
-											<label class="radio-inline"><input type="radio" name="optradioMsc">Msc</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A2">A2</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A3">A3</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Cesure">Césure</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Msc">Msc</label>
 										</div>
 										<fieldset><legend>Elève:</legend>
 											<div class="form-group">
@@ -341,7 +341,7 @@
 				              </div>
 										</fieldset>
 									</div>
-	
+
 									<div id="entreprise" class="tab-pane fade">
 										<fieldset><legend>Entreprise:</legend>
 											<div class="form-group">
@@ -390,7 +390,7 @@
 				              </div>
 										</fieldset>
 									</div>
-	
+
 									<div id="respoStage" class="tab-pane fade">
 										<fieldset><legend>Responsable de stage:</legend>
 											<div class="form-group">
@@ -408,12 +408,12 @@
 											</div>
 										</fieldset>
 									</div>
-	
+
 									<div id="stage" class="tab-pane fade">
 										<fieldset><legend>Stage:</legend>
 											<div class="form-group">
 												<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
-												<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
+												<textarea class="form-control" name="themeStage" rows="8" cols="70"></textarea>
 											</div>
 											<div class="form-group">
 												Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
@@ -428,13 +428,13 @@
 							        </div>
 											<div class="form-group">
 												A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
-												<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradio" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradio" value="0">Non</label>
 											</div>
 											<div class="form-group">
 							          Déplacement à l'étranger au cours du stage (effectué en France):
-												<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradio" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradio" value="0">Non</label>
 							        </div>
 											<div class="form-group">
 							          Par quel moyen vous avez trouvé ce stage:
@@ -442,7 +442,7 @@
 							        </div>
 										</fieldset>
 									</div>
-	
+
 									<div id="annexe" class="tab-pane fade">
 										<fieldset><legend>Annexe à la Déclaration de Stage</legend>
 											<div class="form-group">
@@ -467,11 +467,11 @@
 											</div>
 										</fieldset>
 									</div>
-	
+
 									<div id="envoieValid" class="tab-pane fade">
 										<fieldset><legend>Envoie de votre déclaration de stage:</legend>
 											<p>Assurez-vous que vous avez bien rempli tout les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
-											<input type="submit" class="btn btn-primary" value="Envoyer">
+											<input type="submit" class="btn" value="Envoyer">
 										</fieldset>
 									</div>
 								</div>
@@ -494,7 +494,7 @@
                 <u>Message:</u>
                 <textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
               </div>
-              <button type="button" class="btn btn-primary">Envoyer</button>
+              <button type="button" class="btn">Envoyer</button>
             </div>
 
             <div class="modal fade" id="ajoutExperience" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
@@ -527,8 +527,8 @@
 	                        </div>
 	                  	</div>
                       	<div class="modal-footer">
-                        	<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        	<input type="submit" class="btn btn-primary" name="boutonAjoutExperienceEleve" value="Ajouter">
+                        	<button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
+                        	<input type="submit" class="btn" name="boutonAjoutExperienceEleve" value="Ajouter">
                       	</div>
                     </form>
                   </div>
@@ -551,7 +551,7 @@
 		                					<option value = "${competence.id}" > ${competence.nom} </option>
 		              						</c:forEach>
 		            					</select>
-		            					<input type="submit" name="boutonAjoutCompetenceEleve" value="Ajouter">
+		            					<input type="submit" class="btn" name="boutonAjoutCompetenceEleve" value="Ajouter">
 			                        </p>
 		                        </div>
 	                        </form>
@@ -560,7 +560,7 @@
 			                        <h4 class="modal-title" id="myModalLabel">Ou ajoutez-en une si elle n'apparaît pas ci-dessus !</h4>
 			                        <p class="ajoutExperienceDiv">
 			                        	<input type="text" class="form-control ajoutComp" name="newCompetenceBdd" value="">
-										<input type="submit" name="boutonAjoutCompetenceEleveBdd" value="Ajouter">
+										<input type="submit" class="btn" name="boutonAjoutCompetenceEleveBdd" value="Ajouter">
 			                        </p>
 		                        </div>
 	                        </form>
@@ -583,7 +583,7 @@
 			      <form method="post" action="">
 			      	<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-			        <input type="submit" name="boutonDeconnexion" class="btn btn-danger" value="Se déconnecter" style="opacity:0.9;">
+			        <input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter" style="opacity:0.9;">
 			      </div>
 			      </form>
 			    </div>
@@ -604,8 +604,8 @@
 	                        </div>
 	                  	</div>
                       	<div class="modal-footer">
-                        	<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        	<input type="submit" class="btn btn-primary" name="boutonAjoutInteretEleve" value="Ajouter">
+                        	<button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
+                        	<input type="submit" class="btn" name="boutonAjoutInteretEleve" value="Ajouter">
                       	</div>
                     </form>
                   </div>
