@@ -1,5 +1,6 @@
 package com.isemploi.modeles;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -347,6 +348,24 @@ public class Eleves {
 		}
 	
 		return competences;
+	}
+	
+	public static void envoyerValidation(String secu, String adresseEleve, String mail, String portableEleve, String siretEntreprise, String ape, String nomEntreprise, String adresse1Entreprise, String adresse2Entreprise, String numeroAccueil, String nomTuteur, String prenomTuteur, String telephoneTuteur, String mailTuteur, String posteTuteur, String prenomRH, String nomRH, String telephoneRH, String adresseRH, String mailRH, String themeStage, Date debutStage, Date finStage, float salaire, String avantages, boolean indemnites, boolean etranger, String moyenStage, String presentationEntreprise, String contexteStage, String missions, String etapes, String connaissances, String valide, String login){
+		
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "INSERT INTO validation (v_secu, v_adresse_eleve, v_email, v_portable_eleve, v_siret_entreprise, v_ape, v_nom_enterprise, v_adresse1_entreprise, v_adresse2_entreprise, v_service_accueil, v_tuteur_nom, v_tuteur_prenom, v_tuteur_tel, v_tuteur_mail, v_tuteur_poste, v_rh_prenom, v_rh_nom, v_rh_tel, v_rh_adresse, v_rh_mail, v_theme_sta, v_debut_sta, v_fin_stage, v_salaire, v_avantage, v_indemnite_etranger, v_deplacement_etranger, v_moyen_stage, v_presentation_entreprise, v_contexte_stage, v_mission, v_etapes, v_connaissances, v_valide, u_login) VALUES(?)", false, secu, adresseEleve, mail, portableEleve, siretEntreprise, ape, nomEntreprise, adresse1Entreprise, adresse2Entreprise, numeroAccueil, nomTuteur, prenomTuteur, telephoneTuteur, mailTuteur, posteTuteur, prenomRH, nomRH, telephoneRH, adresseRH, mailRH, themeStage, debutStage, finStage, salaire, avantages, indemnites, etranger, moyenStage, presentationEntreprise, contexteStage, missions, etapes, connaissances, valide, login);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+		
 	}
 	
 }

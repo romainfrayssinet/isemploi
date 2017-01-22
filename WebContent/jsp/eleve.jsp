@@ -367,8 +367,16 @@
 			                <input class="form-control" type="tel" name="telStage">
 			              </div>
 										<div class="form-group">
-			                Nom et prénom adresse (C) de la personne à qui il faut adresse la convention de stage le cas échéant:
-			                <input class="form-control" type="text" name="contactConvention">
+			               	Prénom de la personne à qui il faut adresse la convention de stage le cas échéant:
+			                <input class="form-control" type="text" name="prenomContactConvention">
+			              </div>
+			              				<div class="form-group">
+			                Nom de la personne à qui il faut adresse la convention de stage le cas échéant:
+			                <input class="form-control" type="text" name="nomContactConvention">
+			              </div>
+			              				<div class="form-group">
+			                Adresse de la personne à qui il faut adresse la convention de stage le cas échéant:
+			                <input class="form-control" type="text" name="adresseContactConvention">
 			              </div>
 										<div class="form-group">
 			                N° de Tél.:
