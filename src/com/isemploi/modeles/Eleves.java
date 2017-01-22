@@ -1,6 +1,5 @@
 package com.isemploi.modeles;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -350,7 +349,7 @@ public class Eleves {
 		return competences;
 	}
 	
-	public static void envoyerValidation(String secu, String adresseEleve, String mail, String portableEleve, String siretEntreprise, String ape, String nomEntreprise, String adresse1Entreprise, String adresse2Entreprise, String numeroAccueil, String nomTuteur, String prenomTuteur, String telephoneTuteur, String mailTuteur, String posteTuteur, String prenomRH, String nomRH, String telephoneRH, String adresseRH, String mailRH, String themeStage, Date debutStage, Date finStage, float salaire, String avantages, boolean indemnites, boolean etranger, String moyenStage, String presentationEntreprise, String contexteStage, String missions, String etapes, String connaissances, String valide, String login){
+	public static void envoyerValidation(String secu, String adresseEleve, String mail, String portableEleve, String siretEntreprise, String ape, String nomEntreprise, String adresse1Entreprise, String adresse2Entreprise, String numeroAccueil, String nomTuteur, String prenomTuteur, String telephoneTuteur, String mailTuteur, String posteTuteur, String prenomRH, String nomRH, String telephoneRH, String adresseRH, String mailRH, String themeStage, String debutStage, String finStage, float salaire, String avantages, boolean indemnites, boolean etranger, String moyenStage, String presentationEntreprise, String contexteStage, String missions, String etapes, String connaissances, String valide, String login){
 		
 		Connection connexion = null;
 		PreparedStatement requete = null;
