@@ -310,10 +310,10 @@
 							<div class="tab-content">
 								<div id="eleve" class="tab-pane fade in active">
 									<div class="radio">
-										<label class="radio-inline"><input type="radio" name="optradio">A2</label>
-										<label class="radio-inline"><input type="radio" name="optradio">A3</label>
-										<label class="radio-inline"><input type="radio" name="optradio">Césure</label>
-										<label class="radio-inline"><input type="radio" name="optradio">Msc</label>
+										<label class="radio-inline"><input type="radio" name="optradioA2">A2</label>
+										<label class="radio-inline"><input type="radio" name="optradioA3">A3</label>
+										<label class="radio-inline"><input type="radio" name="optradioCesure">Césure</label>
+										<label class="radio-inline"><input type="radio" name="optradioMsc">Msc</label>
 									</div>
 									<fieldset><legend>Elève:</legend>
 										<div class="form-group">
