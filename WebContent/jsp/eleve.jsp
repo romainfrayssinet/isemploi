@@ -304,6 +304,7 @@
   							<li><a data-toggle="pill" href="#respoStage">Responsable de stage</a></li>
   							<li><a data-toggle="pill" href="#stage">Stage</a></li>
 								<li><a data-toggle="pill" href="#annexe">Annexe</a></li>
+								<li><a data-toggle="pill" href="#envoieValid">Envoyer</a></li>
 							</ul>
 
 							<div class="tab-content">
@@ -457,9 +458,15 @@
 										</div>
 									</fieldset>
 								</div>
+
+								<div id="envoieValid" class="tab-pane fade">
+									<fieldset><legend>Envoie de votre déclaration de stage:</legend>
+										<p>Assurez-vous que vous avez bien rempli tout les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
+										<button type="button" class="btn btn-primary">Envoyer</button>
+									</fieldset>
+								</div>
 							</div>
 
-              <button type="button" class="btn btn-primary">Envoyer</button>
             </div>
 
             <div id="contact" class="tab-pane fade">
