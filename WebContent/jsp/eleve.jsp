@@ -459,7 +459,7 @@
 							        </div>
 											<div class="form-group">
 							          Par quel moyen vous avez trouvé ce stage:
-							          <input class="form-control" type="number" name="trouveStage">
+							          <input class="form-control" type="text" name="trouveStage">
 							        </div>
 										</fieldset>
 									</div>
@@ -492,7 +492,7 @@
 									<div id="envoieValid" class="tab-pane fade">
 										<fieldset><legend>Envoi de votre déclaration de stage:</legend>
 											<p>Assurez-vous que vous avez bien rempli tous les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
-											<input type="submit" class="btn btn-primary" name="envoyerValidation" value="Envoyer">
+											<input type="submit" class="btn" name="envoyerValidation" value="Envoyer">
 										</fieldset>
 									</div>
 								</div>
