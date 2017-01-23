@@ -21,6 +21,10 @@ nav.col-lg-12{
 	background-size: cover;
 	height: 200px;
 }
+.logoIsemploi{
+  width: 60%;
+  padding-top: 20px;
+}
 section.col-lg-9{
   position: relative;
   height: 200px;
@@ -192,6 +196,9 @@ img.img-rounded.img-responsive{
   margin-top: auto;
   margin-bottom: auto;
 }
+.commentaireRespo{
+  padding-bottom: 20px;
+}
 .col-lg-4{
 	padding-top: 8px;
 }
@@ -199,10 +206,10 @@ img.img-rounded.img-responsive{
   paddin-top: 3px;
   width: inherit;
 }
-.logoIsemploi{
+/*.logoIsemploi{
   width: 18%;
   padding-bottom: 3px;
-}
+}*/
 footer{
   background:#F7F9F9;
   width:100%;

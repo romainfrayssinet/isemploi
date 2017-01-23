@@ -19,6 +19,7 @@
   		<nav class="col-lg-12">
   			<div class="container">
   					<section class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+  					<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
   					</section>
   					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
               <ul class="nav nav-tabs nav-justified">
