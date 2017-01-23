@@ -295,7 +295,6 @@
             </div>
 
             <div id="valid" class="tab-pane fade">
-
               <h2><b>Déclaration de stage</b></h2><br>
               
               <c:choose>
@@ -306,9 +305,199 @@
 				<c:when test = "${etatValidation == 2}">
 	   				<p>Votre déclaration de stage a été validée.</p>
 				</c:when>
-				
-				
-				
+				<c:when test = "${etatValidation == 3}">
+					<h3>Votre déclaration n'a pas été validée.</h3>
+					<div>
+						<u>Commentaires du responsable:</u> <c:out value="${validation.commentaires}" />
+					</div>
+	   				<ul class="nav nav-pills">
+  							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
+  							<li><a data-toggle="pill" href="#entreprise">Entreprise</a></li>
+  							<li><a data-toggle="pill" href="#respoStage">Responsable de stage</a></li>
+  							<li><a data-toggle="pill" href="#stage">Stage</a></li>
+								<li><a data-toggle="pill" href="#annexe">Annexe</a></li>
+								<li><a data-toggle="pill" href="#envoieValid">Envoyer</a></li>
+							</ul>
+
+							<form method="post" action="">
+								<div class="tab-content">
+									<div id="eleve" class="tab-pane fade in active">
+										<div class="radio">
+											<label class="radio-inline"><input type="radio" name="optradio" value="A2">A2</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A3">A3</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Cesure">Césure</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Msc">Msc</label>
+										</div>
+										<fieldset><legend>Elève:</legend>
+										<input type="hidden" name="prenomEleve" value="${sessionScope.sessionUtilisateur.prenom}">
+										<input type="hidden" name="nomEleve" value="${sessionScope.sessionUtilisateur.nom}">
+										<input type="hidden" name="parcoursEleve" value="${sessionScope.sessionUtilisateur.idParcours}">
+										<input type="hidden" name="email" value="${sessionScope.sessionUtilisateur.email}">
+										<input type="hidden" name="portable" value="${sessionScope.sessionUtilisateur.portable}">
+											<div class="form-group">
+												<u>Nom et Prénom:</u> ${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom} <br>
+											</div>
+											<div class="form-group">
+												<u>Parcours:</u> ${sessionScope.sessionUtilisateur.parcours}<br>
+											</div>
+											<div class="form-group">
+				                <u>N° de sécurité sociale:</u>
+				                <input class="form-control" type="text" name="numSecu" value="${validation.secu}">
+				              </div>
+											<div class="form-group">
+				                <u>Adresse durant le stage (si différent de l'actuelle):</u>
+				                <input class="form-control" type="text" name="adresse" value="${validation.adresse_eleve}">
+				              </div>
+											<div class="form-group">
+				                <u>Adresse e-mail:</u>
+				                ${sessionScope.sessionUtilisateur.email}
+				              </div>
+											<div class="form-group">
+				                <u>Tél. portable:</u>
+				                ${sessionScope.sessionUtilisateur.portable}
+				              </div>
+										</fieldset>
+									</div>
+
+									<div id="entreprise" class="tab-pane fade">
+										<fieldset><legend>Entreprise:</legend>
+											<div class="form-group">
+												<b>Numéro SIRET de l'Entreprise:</b>
+												<input class="form-control" type="text" name="siret" value="${validation.siret}">
+											</div>
+											<div class="form-group">
+				                <b>Code APE:</b>
+				                <input class="form-control" type="text" name="ape" value="${validation.ape}">
+				              </div>
+											<div class="form-group">
+				              	Nom de la société signataire de la convention ou du contrat:
+				                <input class="form-control" type="text" name="nomEntreprise" value="${validation.nom_ent}">
+				              </div>
+				              				<div class="form-group">
+				              	Adresse (A) de la société signataire de la convention ou du contrat:
+				                <input class="form-control" type="text" name="adresseEntreprise" value="${validation.adresse1_ent}">
+				              </div>
+											<div class="form-group">
+				              	Adresse (B) complète du lieu du stage (si différente de l'adresse A):
+				                <input class="form-control" type="text" name="adresseStage" value="${validation.adresse2_ent}">
+				              </div>
+											<div class="form-group">
+				              	Nom du service d'accueil dans la société:
+				                <input class="form-control" type="text" name="nomServiceAccueil" value="${validation.nomAccueil}">
+				              </div>
+											<div class="form-group">
+				                Standard Téléphonique <u>du lieu du stage</u>:
+				                <input class="form-control" type="tel" name="telStage" value="${validation.service_accueil}">
+				              </div>
+											<div class="form-group">
+				               	Prénom de la personne à qui il faut adresse la convention de stage le cas échéant:
+				                <input class="form-control" type="text" name="prenomContactConvention"  value="${validation.rh_prenom}">
+				              </div>
+				              				<div class="form-group">
+				                Nom de la personne à qui il faut adresse la convention de stage le cas échéant:
+				                <input class="form-control" type="text" name="nomContactConvention" value="${validation.rh_nom}">
+				              </div>
+				              				<div class="form-group">
+				                Adresse de la personne à qui il faut adresse la convention de stage le cas échéant:
+				                <input class="form-control" type="text" name="adresseContactConvention" value="${validation.rh_adresse}">
+				              </div>
+											<div class="form-group">
+				                N° de Tél.:
+				                <input class="form-control" type="tel" name="telConvention" value="${validation.rh_tel}">
+				              </div>
+											<div class="form-group">
+				                <b>Adresse e-mail:</b>
+				                <input class="form-control" type="email" name="mailConvention" value="${validation.rh_mail}">
+				              </div>
+										</fieldset>
+									</div>
+
+									<div id="respoStage" class="tab-pane fade">
+										<fieldset><legend>Responsable de stage:</legend>
+											<div class="form-group">
+												Nom: <input class="form-control" type="text" name="nomRespo" value="${validation.tuteur_nom}">
+												Prénom: <input class="form-control" type="text" name="prenomRespo" value="${validation.rh_prenom}">
+											</div>
+											<div class="form-group">
+												N° de Tél.:<input class="form-control" type="tel" name="telRespo" value="${validation.tuteur_tel}">
+											</div>
+											<div class="form-group">
+												<b>Adresse e-mail:</b><input class="form-control" type="email" name="mailRespo" value="${validation.tuteur_mail}">
+											</div>
+											<div class="form-group">
+												Fonction précise dans la société:<input class="form-control" type="text" name="fonctionRespo" value="${validation.tuteur_poste}">
+											</div>
+										</fieldset>
+									</div>
+
+									<div id="stage" class="tab-pane fade">
+										<fieldset><legend>Stage:</legend>
+											<div class="form-group">
+												<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
+												<textarea class="form-control" name="themeStage" rows="8" cols="70" value="${validation.theme_stage}"></textarea>
+											</div>
+											<div class="form-group">
+												Date prévues pour le stage, du <input class="form-control" type="text" name="dateDebutStage" value="${validation.debut_stage}"> au <input class="form-control" type="text" name="dateFinStage" value="${validation.fin_stage}">
+											</div>
+											<div class="form-group">
+							        	<b>Indémnité de stage en euros, mensuelle brute:</b>
+							          <input class="form-control" type="text" name="indemnite" value="${validation.salaire}">
+							        </div>
+											<div class="form-group">
+							          Avantages en nature en euros:
+							        	<input class="form-control" type="text" name="avantage" value="${validation.avantage}">
+							        </div>
+											<div class="form-group">
+												A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
+												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="0" checked>Non</label>
+											</div>
+											<div class="form-group">
+							          Déplacement à l'étranger au cours du stage (effectué en France):
+												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="0" checked>Non</label>
+							        </div>
+											<div class="form-group">
+							          Par quel moyen vous avez trouvé ce stage:
+							          <input class="form-control" type="text" name="trouveStage" value="${validation.moyen_stage}">
+							        </div>
+										</fieldset>
+									</div>
+
+									<div id="annexe" class="tab-pane fade">
+										<fieldset><legend>Annexe à la Déclaration de Stage</legend>
+											<div class="form-group">
+												Présentation succinte de l'Entreprise ou du Service:
+												<textarea class="form-control" name="prezEntreprise" rows="8" cols="70">${validation.presentation_ent}</textarea>
+											</div>
+											<div class="form-group">
+												Contexte dans lequel s'intégre le stage:
+												<textarea class="form-control" name="contexteStage" rows="8" cols="70">${validation.contexte_stage}</textarea>
+											</div>
+											<div class="form-group">
+												Mission confiée au stagiaire - Objectifs:
+												<textarea class="form-control" name="missionStage" rows="8" cols="70">${validation.mission}</textarea>
+											</div>
+											<div class="form-group">
+												Si possible, principales étapes du stage:
+												<textarea class="form-control" name="etapeStage" rows="8" cols="70">${validation.etapes}</textarea>
+											</div>
+											<div class="form-group">
+												Connaissances requises:
+												<textarea class="form-control" name="connaissanceReq" rows="8" cols="70">${validation.connaissances}</textarea>
+											</div>
+										</fieldset>
+									</div>
+
+									<div id="envoieValid" class="tab-pane fade">
+										<fieldset><legend>Envoi de votre déclaration de stage:</legend>
+											<p>Assurez-vous que vous avez bien rempli tous les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
+											<input type="submit" class="btn" name="modifierValidation" value="Envoyer">
+										</fieldset>
+									</div>
+								</div>
+							</form>
+				</c:when>
 			    <c:otherwise>
 			     	<ul class="nav nav-pills">
   							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>

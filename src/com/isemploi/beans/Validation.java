@@ -43,8 +43,17 @@ public class Validation {
 	private String annee;
 	private String nomAccueil;
 	private String etat;
+	private String commentaires;
 	
 	
+	public String getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(String commentaires) {
+		this.commentaires = commentaires;
+	}
+
 	public String getParcoursEleve() {
 		return parcoursEleve;
 	}

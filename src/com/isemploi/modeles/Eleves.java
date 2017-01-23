@@ -10,6 +10,7 @@ import com.isemploi.beans.Competence;
 import com.isemploi.beans.Experience;
 import com.isemploi.beans.Interet;
 import com.isemploi.beans.Utilisateur;
+import com.isemploi.beans.Validation;
 
 import static com.isemploi.dao.DAOUtilitaires.*;
 import com.mysql.jdbc.Connection;
@@ -385,8 +386,8 @@ public class Eleves {
 				if (etat.equals("en cours")){
 					return 1;
 				}
-				if (etat.equals("refuse")){
-					return 0;
+				if (etat.equals("demande commentaires")){
+					return 3;
 				}
 				if (etat.equals("valide")){
 					return 2;
@@ -403,6 +404,70 @@ public class Eleves {
 			fermetureConnexion(connexion);
 		}
 		
+	}
+	
+public static Validation recupererValidationEleve(String login){
+		
+		Connection connexion = null;
+		ResultSet resultat = null;
+		PreparedStatement requete = null;
+		Validation validation = new Validation();
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "SELECT * FROM validation WHERE u_login = ?", false, login);
+			resultat = requete.executeQuery();
+			
+			while(resultat.next()){
+				
+				validation.setId(resultat.getInt("v_id"));
+				validation.setPrenomEleve(resultat.getString("v_prenom_eleve"));
+				validation.setNomEleve(resultat.getString("v_nom_eleve"));
+				validation.setAnnee(resultat.getString("v_annee"));
+				validation.setSecu(resultat.getString("v_secu"));
+				validation.setEmail_eleve(resultat.getString("v_email"));
+				validation.setTel_eleve(resultat.getString("v_portable_eleve"));
+				validation.setSiret(resultat.getString("v_ape"));
+				validation.setNom_ent(resultat.getString("v_nom_entreprise"));
+				validation.setAdresse1_ent(resultat.getString("v_adresse1_entreprise"));
+				validation.setAdresse2_ent(resultat.getString("v_adresse2_entreprise"));
+				validation.setService_accueil(resultat.getString("v_service_accueil"));
+				validation.setTuteur_prenom(resultat.getString("v_tuteur_prenom"));
+				validation.setTuteur_nom(resultat.getString("v_tuteur_nom"));
+				validation.setTuteur_mail(resultat.getString("v_tuteur_mail"));
+				validation.setTuteur_poste(resultat.getString("v_tuteur_poste"));
+				validation.setTuteur_tel(resultat.getString("v_tuteur_tel"));
+				validation.setRh_prenom(resultat.getString("v_rh_prenom"));
+				validation.setRh_nom(resultat.getString("v_rh_nom"));
+				validation.setRh_tel(resultat.getString("v_rh_tel"));
+				validation.setRh_adresse(resultat.getString("v_rh_adresse"));
+				validation.setRh_mail(resultat.getString("v_rh_mail"));
+				validation.setTheme_stage(resultat.getString("v_theme_stage"));
+				validation.setDebut_stage(resultat.getString("v_debut_stage"));
+				validation.setFin_stage(resultat.getString("v_fin_stage"));
+				validation.setSalaire(resultat.getString("v_salaire"));
+				validation.setAvantage(resultat.getString("v_avantage"));
+				validation.setIndemnite_etranger(resultat.getInt("v_indemnite_etranger"));
+				validation.setDeplacement_etranger(resultat.getInt("v_deplacement_etranger"));
+				validation.setMoyen_stage(resultat.getString("v_moyen_stage"));
+				validation.setPresentation_ent(resultat.getString("v_presentation_entreprise"));
+				validation.setContexte_stage(resultat.getString("v_contexte_stage"));
+				validation.setMission(resultat.getString("v_mission"));
+				validation.setEtapes(resultat.getString("v_etapes"));
+				validation.setConnaissances(resultat.getString("v_connaissances"));
+				validation.setEtat(resultat.getString("v_valide"));
+				validation.setNomAccueil(resultat.getString("v_nom_accueil"));
+				validation.setCommentaires(resultat.getString("v_commentaires"));
+				
+			}
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(resultat);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	
+		return validation;
 	}
 	
 }
