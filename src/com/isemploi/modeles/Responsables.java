@@ -41,7 +41,7 @@ public class Responsables {
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "SELECT * FROM validation WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?) AND v_valide != ?", false, login, "demande commentaires");
+			requete = initialiserRequete(connexion, "SELECT * FROM validation WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?) AND v_valide != ? AND v_valide != ?", false, login, "demande commentaires", "valide");
 			resultat = requete.executeQuery();
 			
 			while(resultat.next()){

@@ -369,6 +369,25 @@ public class Eleves {
 		
 	}
 	
+	public static void modifierValidation(String nomAccueil, String secu, String annee, String adresseEleve, String mail, String portableEleve, String siretEntreprise, String ape, String nomEntreprise, String adresse1Entreprise, String adresse2Entreprise, String numeroAccueil, String nomTuteur, String prenomTuteur, String telephoneTuteur, String mailTuteur, String posteTuteur, String prenomRH, String nomRH, String telephoneRH, String adresseRH, String mailRH, String themeStage, String debutStage, String finStage, String salaire, String avantages, int indemnites, int etranger, String moyenStage, String presentationEntreprise, String contexteStage, String missions, String etapes, String connaissances, String valide, String login, String prenom, String nom, int parcours){
+		
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "UPDATE validation SET v_nom_accueil = ?, v_annee = ?, v_prenom_eleve = ?, v_nom_eleve = ?, p_id = ?, v_secu = ?, v_adresse_eleve = ?, v_email = ?, v_portable_eleve = ?, v_siret_entreprise = ?, v_ape = ?, v_nom_entreprise = ?, v_adresse1_entreprise = ?, v_adresse2_entreprise = ?, v_service_accueil = ?, v_tuteur_nom = ?, v_tuteur_prenom = ?, v_tuteur_tel = ?, v_tuteur_mail = ?, v_tuteur_poste = ?, v_rh_prenom = ?, v_rh_nom = ?, v_rh_tel = ?, v_rh_adresse = ?, v_rh_mail = ?, v_theme_stage = ?, v_debut_stage = ?, v_fin_stage = ?, v_salaire = ?, v_avantage = ?, v_indemnite_etranger = ?, v_deplacement_etranger = ?, v_moyen_stage = ? , v_presentation_entreprise = ?, v_contexte_stage = ?, v_mission = ?, v_etapes = ?, v_connaissances = ?, v_valide = ? WHERE u_login = ?", false, nomAccueil, annee, prenom, nom, parcours, secu, adresseEleve, mail, portableEleve, siretEntreprise, ape, nomEntreprise, adresse1Entreprise, adresse2Entreprise, numeroAccueil, nomTuteur, prenomTuteur, telephoneTuteur, mailTuteur, posteTuteur, prenomRH, nomRH, telephoneRH, adresseRH, mailRH, themeStage, debutStage, finStage, salaire, avantages, indemnites, etranger, moyenStage, presentationEntreprise, contexteStage, missions, etapes, connaissances, valide, login);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+			e.printStackTrace();
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+		
+	}
+	
 	public static int recupererEtatValidation(String login){
 		Connection connexion = null;
 		PreparedStatement requete = null;
