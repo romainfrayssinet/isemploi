@@ -327,7 +327,7 @@
 	                             <fieldset><legend>Annexe à la Déclaration de Stage</legend>
 	                              <div class="form-group">
 	                                <u>Présentation succinte de l'Entreprise ou du Service:</u><br>
-	                                <${validation.presentation_ent}
+	                                ${validation.presentation_ent}
 	                              </div>
 	                              <div class="form-group">
 	                                <u>Contexte dans lequel s'intégre le stage:</u><br>

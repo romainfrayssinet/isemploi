@@ -33,11 +33,17 @@ public class ControleurProfil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("user", Utilisateurs.recupererUtilisateur(request.getParameter("login")));
-		request.setAttribute("experiences", Eleves.recupererExperiences(request.getParameter("login")));
-		request.setAttribute("interetsEleve", Eleves.recupererInterets(request.getParameter("login")));
-		request.setAttribute("competencesEleve", Eleves.recupererCompetencesEleve(request.getParameter("login")));
-		this.getServletContext().getRequestDispatcher( "/jsp/profil.jsp" ).forward(request, response);
+		HttpSession session = request.getSession();
+		if (((Utilisateur) session.getAttribute("sessionUtilisateur")).getStatut().equals("eleve")){
+			this.getServletContext().getRequestDispatcher( "/jsp/error.jsp" ).forward(request, response);
+		} else{
+			request.setAttribute("user", Utilisateurs.recupererUtilisateur(request.getParameter("login")));
+			request.setAttribute("experiences", Eleves.recupererExperiences(request.getParameter("login")));
+			request.setAttribute("interetsEleve", Eleves.recupererInterets(request.getParameter("login")));
+			request.setAttribute("competencesEleve", Eleves.recupererCompetencesEleve(request.getParameter("login")));
+			this.getServletContext().getRequestDispatcher( "/jsp/profil.jsp" ).forward(request, response);
+		}
+
 	}
 
 	/**
