@@ -95,7 +95,7 @@
                         <div class="form-group">
                           <label for="parcours">Modifier votre parcours:</label>
 	                       	<p class="ajoutExperienceDiv">
-	                       		<select class="form-control selectComp" name="newParcours">
+	                       		<select class="form-control" name="newParcours">
 	             					<c:forEach var = "unParcours" items = "${parcours}">
 	               						<option value = "${unParcours.id}" > ${unParcours.nom} </option>
 	             					</c:forEach>
