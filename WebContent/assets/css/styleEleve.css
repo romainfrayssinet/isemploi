@@ -97,26 +97,30 @@ h4#myModalLabel{
 h2{
   text-align: center;
 }
-/* .btn{
-  background-color: black;
-  color: white;
-  transition: all 0.3s ease 0s;
-}
-.btn:hover{
+.btn{
   border-color: black;
-  background-color:white;
+  background-color: white;
   color: black;
   transition: all 0.3s ease 0s;
 }
+.btn:hover{
+  transition: all 0.3s ease 0s;
+  font-size: 15px;
+  background-color: white;
+}
+.btn.ferme{
+  background-color:#F7F9F9;
+}
 .btn.deco{
+  border-color: white;
   background: rgb(210,98,98);
   color: white;
   transition: all 0.3s ease 0s
 }
 .btn.deco:hover{
-  background-color:rgb(210,98,98,0.5);
+  font-size: 15px;
   transition: all 0.3s ease 0s;
-} */
+}
 
 .nomCompetence, .nomInteret{
 	position : relative;
