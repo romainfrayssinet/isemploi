@@ -323,7 +323,7 @@
 								<div class="tab-content">
 									<div id="eleve" class="tab-pane fade in active">
 										<div class="radio">
-											<label class="radio-inline"><input type="radio" name="optradio" value="A2">A2</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A2" checked>A2</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="A3">A3</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="Cesure">Césure</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="Msc">Msc</label>
@@ -492,7 +492,7 @@
 									<div id="envoieValid" class="tab-pane fade">
 										<fieldset><legend>Envoi de votre déclaration de stage:</legend>
 											<p>Assurez-vous que vous avez bien rempli tous les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
-											<input type="submit" class="btn" name="modifierValidation" value="Envoyer">
+											<input type="submit" class="btn" name="boutonModifierValidation" value="Envoyer">
 										</fieldset>
 									</div>
 								</div>
@@ -512,7 +512,7 @@
 								<div class="tab-content">
 									<div id="eleve" class="tab-pane fade in active">
 										<div class="radio">
-											<label class="radio-inline"><input type="radio" name="optradio" value="A2">A2</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A2" checked>A2</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="A3">A3</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="Cesure">Césure</label>
 											<label class="radio-inline"><input type="radio" name="optradio" value="Msc">Msc</label>
@@ -639,12 +639,12 @@
 											<div class="form-group">
 												A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
 												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="1">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="0">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="0" checked>Non</label>
 											</div>
 											<div class="form-group">
 							          Déplacement à l'étranger au cours du stage (effectué en France):
 												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="1">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="0">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="0" checked>Non</label>
 							        </div>
 											<div class="form-group">
 							          Par quel moyen vous avez trouvé ce stage:
