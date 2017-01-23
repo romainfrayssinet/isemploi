@@ -166,7 +166,7 @@
               <div class="col-sm-3">                
                 <ul class="nav nav-pills nav-stacked ">
 					<c:forEach var = "validation" items = "${validations}">
-						<li class="active"><a data-toggle="pill" href="#valid${validation.id}">
+						<li class=""><a data-toggle="pill" href="#valid${validation.id}">
 							<b>${validation.prenomEleve} ${validation.nomEleve}</b><br>
 							Stage chez ${validation.nom_ent}
 							</a></li>
@@ -179,7 +179,7 @@
                 <div class="tab-content">
                 	<c:forEach var = "validation" items = "${validations}">
                 	
-                		<div id="valid${validation.id}"class="tab-pane fade in active">
+                		<div id="valid${validation.id}"class="tab-pane fade">
 
 		                    <p>
 		                      <u>Entreprise:</u> ${validation.nom_ent} <br>
@@ -193,10 +193,31 @@
 		                      <u>Validation:</u>
 		
 		                      <div class="buttons">
-		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid" data-toggle="modal" data-target="#accepter${validation.id}"/></a>
 		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
 		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
 		                      </div>
+		                      
+		                      <div class="modal fade" tabindex="-1" role="dialog" id="accepter${validation.id}">
+						 		 <div class="modal-dialog" role="document">
+						    		<div class="modal-content">
+						      			<div class="modal-header">
+						        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        			<h4 class="modal-title">Validation la déclaration de Stage</h4>
+						      			</div>
+						      			<div class="modal-body">
+						        			<p>Voulez-vous vraiment valider cette déclaration de Stage ?</p>
+						      			</div>
+						      			<form method="post" action="">
+						      				<input type="hidden" name="idValidation" value="${validation.id}">
+						      				<div class="modal-footer">
+						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						       					<input type="submit" name="boutonAccepterValidationStage" class="btn btn-danger" value="Validation" style="opacity:0.9;">
+						      				</div>
+						      			</form>
+							    	</div>
+								  </div>
+							  </div>
 		
 		
 		                      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">

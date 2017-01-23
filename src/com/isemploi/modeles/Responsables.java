@@ -99,4 +99,20 @@ public class Responsables {
 		return validations;
 	}
 	
+	public static void accepterValidation(int idValidation){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "UPDATE validation SET v_valide = ? WHERE v_id = ?", false, "valide", idValidation);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
 }

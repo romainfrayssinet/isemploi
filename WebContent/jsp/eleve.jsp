@@ -306,6 +306,9 @@
 				<c:when test = "${etatValidation == 2}">
 	   				<p>Votre déclaration de stage a été validée.</p>
 				</c:when>
+				
+				
+				
 			    <c:otherwise>
 			     	<ul class="nav nav-pills">
   							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
@@ -592,7 +595,7 @@
               </div>
             </div>
 
-	        <div class="modal fade" tabindex="-1" role="dialog" id="deconnexion">
+	        <div class="modal fade" id="deconnexion" tabindex="-1" role="dialog">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">

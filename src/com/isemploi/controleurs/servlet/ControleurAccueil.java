@@ -101,6 +101,12 @@ public class ControleurAccueil extends HttpServlet {
 			response.sendRedirect("accueil");
 		}
 		
+		if (request.getParameter("boutonAccepterValidationStage") != null){
+			Responsables.accepterValidation(Integer.parseInt(request.getParameter("idValidation")));
+			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
+			response.sendRedirect("accueil");
+		}
+		
 		if (request.getParameter("boutonSupprimerExperience") != null){
 			Eleves.supprimerExperience(Integer.parseInt(request.getParameter("idExperience")));
 			response.sendRedirect("accueil");
