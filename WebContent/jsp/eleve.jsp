@@ -487,8 +487,8 @@
 									</div>
 
 									<div id="envoieValid" class="tab-pane fade">
-										<fieldset><legend>Envoie de votre déclaration de stage:</legend>
-											<p>Assurez-vous que vous avez bien rempli tout les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
+										<fieldset><legend>Envoi de votre déclaration de stage:</legend>
+											<p>Assurez-vous que vous avez bien rempli tous les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
 											<input type="submit" class="btn btn-primary" name="envoyerValidation" value="Envoyer">
 										</fieldset>
 									</div>
@@ -650,7 +650,7 @@
 								<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
-								Copyright (c) 2016 Isemploi by ISEP. Tout droits réservés.
+								Copyright (c) 2016 Isemploi by ISEP. Tous droits réservés.
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
 								<img src="${pageContext.request.contextPath}\assets\images\logo-isep.png" class="logoIsep" alt="logo ISEP">
