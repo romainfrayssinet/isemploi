@@ -95,7 +95,7 @@
                         <div class="form-group">
                           <label for="parcours">Modifier votre parcours:</label>
 	                       	<p class="ajoutExperienceDiv">
-	                       		<select class="form-control selectComp" name="newParcours">
+	                       		<select class="form-control" name="newParcours">
 	             					<c:forEach var = "unParcours" items = "${parcours}">
 	               						<option value = "${unParcours.id}" > ${unParcours.nom} </option>
 	             					</c:forEach>
@@ -607,7 +607,7 @@
 			      </div>
 			      <form method="post" action="">
 			      	<div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+			        <button type="button" class="btn" data-dismiss="modal">Annuler</button>
 			        <input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter" style="opacity:0.9;">
 			      </div>
 			      </form>

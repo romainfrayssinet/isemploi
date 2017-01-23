@@ -66,8 +66,8 @@
               		<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn btn-primary" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
+              <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
+              <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -97,8 +97,8 @@
 	                        </div>
 	                      </div>
 	                      <div class="modal-footer">
-	                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-	                        <input type="submit" name="boutonModifInfosRespos" class="btn btn-primary" value="Modifier">
+	                        <button type="button" class="btn fermet" data-dismiss="modal">Fermer</button>
+	                        <input type="submit" name="boutonModifInfosRespos" class="btn" value="Modifier">
 	                      </div>
                       </form>
                     </div>
@@ -118,8 +118,8 @@
 		      			</div>
 		      			<form method="post" action="">
 		      				<div class="modal-footer">
-		        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-		       					<input type="submit" name="boutonDeconnexion" class="btn btn-danger" value="Se déconnecter" style="opacity:0.9;">
+		        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
+		       					<input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter" style="opacity:0.9;">
 		      				</div>
 		      			</form>
 			    	</div>
@@ -156,14 +156,14 @@
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><img class="img-rounded img-responsive petitesPhotosProfil" src="http://storage.iseplive.fr/avatars/${eleve.debutNumero}/${eleve.numero}.jpg" alt="valid"/></a>
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><c:out value = "${eleve.prenom} ${eleve.nom}" /></a>
 		              	</div>
-					</c:forEach>
+					        </c:forEach>
               	</div>
 
             </div>
 
             <div id="valid" class="tab-pane fade">
 
-              <div class="col-sm-3">                
+              <div class="col-sm-3">
                 <ul class="nav nav-pills nav-stacked ">
 					<c:forEach var = "validation" items = "${validations}">
 						<li class=""><a data-toggle="pill" href="#valid${validation.id}">
@@ -172,33 +172,214 @@
 							</a></li>
                 	</c:forEach>
                 </ul>
-                
+
               </div>
 
               <section class="col-sm-9">
                 <div class="tab-content">
                 	<c:forEach var = "validation" items = "${validations}">
-                	
+
                 		<div id="valid${validation.id}"class="tab-pane fade">
 
-		                    <p>
-		                      <u>Entreprise:</u> ${validation.nom_ent} <br>
-		                      <br>
-		                      <u>Nom du responsable:</u> ${validation.tuteur_prenom} ${validation.tuteur_nom} <br>
-		                      <br>
-		                      <u>Descriptif de la mission:</u> <br>
-		                      <br>
-		                      ${validation.mission}<br>
-		                      <br>
-		                      <u>Validation:</u>
-		
-		                      <div class="buttons">
-		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid" data-toggle="modal" data-target="#accepter${validation.id}"/></a>
-		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
-		                      </div>
-		                      
-		                      <div class="modal fade" tabindex="-1" role="dialog" id="accepter${validation.id}">
+                      <h2><b>Déclaration de stage</b></h2><br>
+
+                      <%-- <c:choose>
+                <c:when test = "${etatValidation == 1}">
+                    <p>Votre déclaration de stage est en cours de traitement, nous vous répondrons dans les plus brefs délais.</p>
+                    <p>Si vous pouvez à nouveau soumettre une déclaration de stage, c'est que celle que vous avez envoyée ne convient pas. Dans ce cas, n'hésitez pas à contacter votre responsable de parcours pour plus de renseignements.</p>
+                </c:when>
+                <c:when test = "${etatValidation == 2}">
+                    <p>Votre déclaration de stage a été validée.</p>
+                </c:when> --%>
+
+
+
+                  <%-- <c:otherwise> --%>
+                    <ul class="nav nav-pills">
+                        <li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
+                        <li><a data-toggle="pill" href="#entreprise">Entreprise</a></li>
+                        <li><a data-toggle="pill" href="#respoStage">Responsable de stage</a></li>
+                        <li><a data-toggle="pill" href="#stage">Stage</a></li>
+                        <li><a data-toggle="pill" href="#annexe">Annexe</a></li>
+                        <li><a data-toggle="pill" href="#validDecla">Envoyer</a></li>
+                      </ul>
+
+                      <form method="post" action="">
+                        <div class="tab-content">
+                          <div id="eleve" class="tab-pane fade in active">
+                            <div class="form-group">
+                              <u>Type de stage:</u> ${validation.annee}<br>
+                            </div>
+                            <fieldset><legend>Elève:</legend>
+                                <u>Nom et Prénom:</u> ${validation.nomEleve} ${validation.prenomEleve} <br>
+                              </div>
+                              <div class="form-group">
+                                <u>Parcours:</u> ${validation.parcoursEleve}<br>
+                              </div>
+                              <div class="form-group">
+                                <u>N° de sécurité sociale:</u>
+                                ${validation.secu}
+                              </div>
+                              <div class="form-group">
+                                <u>Adresse durant le stage (si différent de l'actuelle):</u>
+                                ${validation.adresse_eleve}
+                              </div>
+                              <div class="form-group">
+                                <u>Adresse e-mail:</u>
+                                ${validation.email_eleve}
+                              </div>
+                              <div class="form-group">
+                                <u>Tél. portable:</u>
+                                ${validation.tel_eleve}
+                              </div>
+                            </fieldset>
+                          </div>
+
+                          <div id="entreprise" class="tab-pane fade">
+                            <fieldset><legend>Entreprise:</legend>
+                              <div class="form-group">
+                                <b>Numéro SIRET de l'Entreprise:</b>
+                                ${validation.siret}
+                              </div>
+                              <div class="form-group">
+                                <b>Code APE:</b>
+                                ${validation.ape}
+                              </div>
+                              <div class="form-group">
+                                Nom de la société signataire de la convention ou du contrat:
+                                ${validation.nom_ent}
+                              </div>
+                                      <div class="form-group">
+                                Adresse (A) de la société signataire de la convention ou du contrat:
+                                ${validation.adresse1_ent}
+                              </div>
+                              <div class="form-group">
+                                Adresse (B) complète du lieu du stage (si différente de l'adresse A):
+                                ${validation.adresse2_ent}
+                              </div>
+                              <div class="form-group">
+                                Nom du service d'accueil dans la société:
+                                ${validation.nomAccueil}
+                              </div>
+                              <div class="form-group">
+                                Standard Téléphonique <u>du lieu du stage</u>:
+                                ${validation.service_accueil}
+                              </div>
+                              <div class="form-group">
+                                Prénom de la personne à qui il faut adresse la convention de stage le cas échéant:
+                                ${validation.rh_prenom}
+                              </div>
+                                      <div class="form-group">
+                                Nom de la personne à qui il faut adresse la convention de stage le cas échéant:
+                                ${validation.rh_nom}
+                              </div>
+                                      <div class="form-group">
+                                Adresse de la personne à qui il faut adresse la convention de stage le cas échéant:
+                                ${validation.rh_adresse}
+                              </div>
+                              <div class="form-group">
+                                N° de Tél.:
+                                ${validation.rh_tel}
+                              </div>
+                              <div class="form-group">
+                                <b>Adresse e-mail:</b>
+                                ${validation.rh_mail}
+                              </div>
+                            </fieldset>
+                          </div>
+
+                          <div id="respoStage" class="tab-pane fade">
+                            <fieldset><legend>Responsable de stage:</legend>
+                              <div class="form-group">
+                                Nom: ${validation.tuteur_nom}<br>
+                                Prénom: ${validation.tuteur_prenom}
+                              </div>
+                              <div class="form-group">
+                                N° de Tél.:${validation.tuteur_tel}
+                              </div>
+                              <div class="form-group">
+                                <b>Adresse e-mail:</b>${validation.tuteur_mail}
+                              </div>
+                              <div class="form-group">
+                                Fonction précise dans la société:${validation.tuteur_poste}
+                              </div>
+                            </fieldset>
+                          </div>
+
+                          <div id="stage" class="tab-pane fade">
+                            <fieldset><legend>Stage:</legend>
+                              <div class="form-group">
+                                <b><u>Thème du stage:</u></b>
+                                ${validation.theme_stage}
+                              </div>
+                              <div class="form-group">
+                                Date prévues pour le stage: du ${validation.debut_stage} au ${validation.fin_stage}
+                              </div>
+                              <div class="form-group">
+                                <b>Indémnité de stage en euros, mensuelle brute:</b>
+                                ${validation.salaire}
+                              </div>
+                              <div class="form-group">
+                                Avantages en nature en euros:
+                                ${validation.avantage}
+                              </div>
+                              <div class="form-group">
+                                A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
+                                ${validation.indemnite_etranger}
+                              </div>
+                              <div class="form-group">
+                                Déplacement à l'étranger au cours du stage (effectué en France):
+                                ${validation.deplacement_etranger}
+                              </div>
+                              <div class="form-group">
+                                Moyen par lequel l'élève a trouvé ce stage:
+                                ${validation.moyen_stage}
+                              </div>
+                            </fieldset>
+                          </div>
+
+                          <div id="annexe" class="tab-pane fade">
+                            <fieldset><legend>Annexe à la Déclaration de Stage</legend>
+                              <div class="form-group">
+                                Présentation succinte de l'Entreprise ou du Service:<br>
+                                <${validation.presentation_ent}
+                              </div>
+                              <div class="form-group">
+                                Contexte dans lequel s'intégre le stage:<br>
+                                ${validation.contexte_stage}
+                              </div>
+                              <div class="form-group">
+                                Mission confiée au stagiaire - Objectifs:<br>
+                                ${validation.mission}
+                              </div>
+                              <div class="form-group">
+                                Si possible, principales étapes du stage:<br>
+                                ${validation.etapes}
+                              </div>
+                              <div class="form-group">
+                                Connaissances requises:<br>
+                                ${validation.connaissances}
+                              </div>
+                            </fieldset>
+                          </div>
+
+                          <div id="validDecla" class="tab-pane fade">
+                            <fieldset><legend>Valider la déclaration:</legend>
+                              <<div class="buttons">
+    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid" data-toggle="modal" data-target="#accepter${validation.id}"/></a>
+    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
+    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
+    		                      </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </form>
+
+
+                  <%-- </c:otherwise>
+                </c:choose> --%>
+		          <p>
+		            <div class="modal fade" tabindex="-1" role="dialog" id="accepter${validation.id}">
 						 		 <div class="modal-dialog" role="document">
 						    		<div class="modal-content">
 						      			<div class="modal-header">
@@ -211,15 +392,15 @@
 						      			<form method="post" action="">
 						      				<input type="hidden" name="idValidation" value="${validation.id}">
 						      				<div class="modal-footer">
-						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						       					<input type="submit" name="boutonAccepterValidationStage" class="btn btn-danger" value="Validation" style="opacity:0.9;">
+						        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
+						       					<input type="submit" name="boutonAccepterValidationStage" class="btn" value="Validation">
 						      				</div>
 						      			</form>
 							    	</div>
 								  </div>
 							  </div>
-		
-		
+
+
 		                      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
 		                        <div class="modal-dialog" role="document">
 		                          <div class="modal-content">
@@ -241,13 +422,13 @@
 		                                </div>
 		                              </div>
 		                              <div class="modal-footer">
-		                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-		                                <button type="button" class="btn btn-primary">Envoyer</button>
+		                                <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
+		                                <button type="button" class="btn">Envoyer</button>
 		                              </div>
 		                            </div>
 		                          </div>
 		                        </div>
-		
+
 		                      </div>
 		                    </p>
                   		</div>
