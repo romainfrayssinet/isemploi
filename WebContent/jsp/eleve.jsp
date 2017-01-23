@@ -16,7 +16,7 @@
 		<nav class="col-lg-12">
 			<div class="container">
 					<section class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-						<img src="http://mailing.isep.fr/test/logo-isep-297x125.png" alt="logo-isep" class="img-responsive logo-isep">
+						<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
 					</section>
 					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 						<ul class="nav nav-tabs nav-justified">
@@ -296,7 +296,7 @@
 
             <div id="valid" class="tab-pane fade">
               <h2><b>Déclaration de stage</b></h2><br>
-              
+
               <c:choose>
 				<c:when test = "${etatValidation == 1}">
 	   				<p>Votre déclaration de stage est en cours de traitement, nous vous répondrons dans les plus brefs délais.</p>
@@ -306,10 +306,11 @@
 	   				<p>Votre déclaration de stage a été validée.</p>
 				</c:when>
 				<c:when test = "${etatValidation == 3}">
-					<h3>Votre déclaration n'a pas été validée.</h3>
-					<div>
-						<u>Commentaires du responsable:</u> <c:out value="${validation.commentaires}" />
-					</div>
+					<fieldset></fieldset><legend>Votre déclaration n'a pas été validée.</legend>
+						<div class="commentaireRespo">
+							<u>Commentaires du responsable:</u> <c:out value="${validation.commentaires}" />
+						</div>
+					</fieldset>
 	   				<ul class="nav nav-pills">
   							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
   							<li><a data-toggle="pill" href="#entreprise">Entreprise</a></li>
@@ -687,7 +688,7 @@
 								</div>
 							</form>
 
-            
+
 			    </c:otherwise>
 			  </c:choose>
 
@@ -836,7 +837,7 @@
           });
 
           </script>
-					<footer class="col-lg-12">
+					<%-- <footer class="col-lg-12">
 						<div class="row">
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
 								<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
@@ -848,7 +849,7 @@
 								<img src="${pageContext.request.contextPath}\assets\images\logo-isep.png" class="logoIsep" alt="logo ISEP">
 							</div>
 						</div>
-					</footer>
+					</footer> --%>
         </section>
       </div>
     </div>

@@ -19,6 +19,7 @@
   		<nav class="col-lg-12">
   			<div class="container">
   					<section class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+  					<img src="${pageContext.request.contextPath}\assets\images\logo-isemploi.png" class="logoIsemploi" alt="logo Isemploi">
   					</section>
   					<section class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
               <ul class="nav nav-tabs nav-justified">
@@ -66,8 +67,8 @@
               		<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
-              <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
+              <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier infos</button>
+              <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -97,7 +98,7 @@
 	                        </div>
 	                      </div>
 	                      <div class="modal-footer">
-	                        <button type="button" class="btn fermet" data-dismiss="modal">Fermer</button>
+	                        <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
 	                        <input type="submit" name="boutonModifInfosRespos" class="btn" value="Modifier">
 	                      </div>
                       </form>
@@ -119,7 +120,7 @@
 		      			<form method="post" action="">
 		      				<div class="modal-footer">
 		        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
-		       					<input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter" style="opacity:0.9;">
+		       					<input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter">
 		      				</div>
 		      			</form>
 			    	</div>

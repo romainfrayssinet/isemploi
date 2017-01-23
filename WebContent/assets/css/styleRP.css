@@ -22,6 +22,10 @@ section.col-lg-9{
   position: relative;
   height: 200px;
 }
+.logoIsemploi{
+  width: 60%;
+  padding-top: 20px;
+}
 .nav-tabs.nav-justified{
   position: absolute;
   bottom: 0px;
@@ -47,11 +51,6 @@ nav.col-lg-3{
   text-align: center;
   font-family: mainfont;
 }
-
-.container button {
-  border-radius: none;
-}
-
 .petitesPhotosProfil{
 	margin-left: auto;
 	margin-right: auto;
@@ -85,7 +84,7 @@ h2{
   text-align: center;
 }
 .btn{
-  border-color: black;
+  border-color: black !important;
   background-color: white;
   color: black;
   transition: all 0.3s ease 0s;
@@ -99,9 +98,9 @@ h2{
   background-color:#F7F9F9;
 }
 .btn.deco{
-  border-color: white;
+  border-color: white !important;
   background: rgb(210,98,98);
-  color: white;
+  color: white !important;
   transition: all 0.3s ease 0s
 }
 .btn.deco:hover{
