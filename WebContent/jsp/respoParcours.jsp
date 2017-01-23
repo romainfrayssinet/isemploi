@@ -163,122 +163,74 @@
 
             <div id="valid" class="tab-pane fade">
 
-              <div class="col-sm-3">
+              <div class="col-sm-3">                
                 <ul class="nav nav-pills nav-stacked ">
-                  <li class="active"><a data-toggle="pill" href="#valid1">
-                    <b>William Duvant</b><br>
-                    Stage chez Ubisoft
-                  </a></li>
-                  <li><a data-toggle="pill" href="#valid2">
-                    <b>William Duvant</b><br>
-                    Stage chez Ubisoft
-                  </a></li>
-                  <li><a data-toggle="pill" href="#valid3">
-                    <b>William Duvant</b><br>
-                    Stage chez Ubisoft
-                  </a></li>
+					<c:forEach var = "validation" items = "${validations}">
+						<li class="active"><a data-toggle="pill" href="#valid${validation.id}">
+							<b>${validation.prenomEleve} ${validation.nomEleve}</b><br>
+							Stage chez ${validation.nom_ent}
+							</a></li>
+                	</c:forEach>
                 </ul>
+                
               </div>
 
               <section class="col-sm-9">
                 <div class="tab-content">
-                  <div id="valid1"class="tab-pane fade in active">
+                	<c:forEach var = "validation" items = "${validations}">
+                	
+                		<div id="valid${validation.id}"class="tab-pane fade in active">
 
-                    <p>
-                      <u>Entreprise:</u> Ubisoft <br>
-                      <br>
-                      <u>Intitulé du poste:</u> Assistant chef de projet IT <br>
-                      <br>
-                      <u>Nom du responsable:</u> Paul Steimberger <br>
-                      <br>
-                      <u>Descriptif de la mission:</u> <br>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam  fringilla ullamcorper orci, ut blandit erat pretium sed. Aliquam  vulputate magna condimentum quam semper volutpat et eget erat. Maecenas  placerat purus nec eros consectetur, vel vulputate ipsum tincidunt.  Aliquam quis porta mauris, sit amet accumsan tortor. <br>
-                      <br>
-                      <u>Validation:</u>
-
-                      <div class="buttons">
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
-                      </div>
-
-
-                      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="myModalLabel">Demandez plus de détails sur ce stage</h4>
-                              <div class="modal-body">
-                                <div class="form-group">
-                                  <label for="destinataire">Destinataire:</label>
-                                  william.duvant@isep.fr
-                                </div>
-                                <div class="form-group">
-                                  <label for="obj">Objet de votre message:</label>
-                                  <input class="form-control" type="text" name="obj">
-                                </div>
-                                <div class="form-group">
-                                  <label for="mail">Message:</label>
-                                  <textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-primary">Envoyer</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </p>
-
-                  </div>
-
-                  <div id="valid2" class="tab-pane fade">
-                    <p>
-                      <u>Entreprise:</u> Ubisoft <br>
-                      <br>
-                      <u>Intitulé du poste:</u> Assistant chef de projet IT <br>
-                      <br>
-                      <u>Nom du responsable:</u> Paul Steimberger <br>
-                      <br>
-                      <u>Descriptif de la mission:</u> <br>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam  fringilla ullamcorper orci, ut blandit erat pretium sed. Aliquam  vulputate magna condimentum quam semper volutpat et eget erat. Maecenas  placerat purus nec eros consectetur, vel vulputate ipsum tincidunt.  Aliquam quis porta mauris, sit amet accumsan tortor. <br>
-                      <br>
-                      <u>Validation:</u>
-                        <div class="buttons">
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
-                        </div>
-                    </p>
-                  </div>
-
-                  <div id="valid3"class="tab-pane fade">
-                    <p>
-                      <u>Entreprise:</u> Ubisoft <br>
-                      <br>
-                      <u>Intitulé du poste:</u> Assistant chef de projet IT <br>
-                      <br>
-                      <u>Nom du responsable:</u> Paul Steimberger <br>
-                      <br>
-                      <u>Descriptif de la mission:</u> <br>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam  fringilla ullamcorper orci, ut blandit erat pretium sed. Aliquam  vulputate magna condimentum quam semper volutpat et eget erat. Maecenas  placerat purus nec eros consectetur, vel vulputate ipsum tincidunt.  Aliquam quis porta mauris, sit amet accumsan tortor. <br>
-                      <br>
-                      <u>Validation:</u>
-                        <div class="buttons">
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
-                        </div>
-                    </p>
-                  </div>
-
+		                    <p>
+		                      <u>Entreprise:</u> ${validation.nom_ent} <br>
+		                      <br>
+		                      <u>Nom du responsable:</u> ${validation.tuteur_prenom} ${validation.tuteur_nom} <br>
+		                      <br>
+		                      <u>Descriptif de la mission:</u> <br>
+		                      <br>
+		                      ${validation.mission}<br>
+		                      <br>
+		                      <u>Validation:</u>
+		
+		                      <div class="buttons">
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid"/></a>
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
+		                      </div>
+		
+		
+		                      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
+		                        <div class="modal-dialog" role="document">
+		                          <div class="modal-content">
+		                            <div class="modal-header">
+		                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                              <h4 class="modal-title" id="myModalLabel">Demandez plus de détails sur ce stage</h4>
+		                              <div class="modal-body">
+		                                <div class="form-group">
+		                                  <label for="destinataire">Destinataire:</label>
+		                                  william.duvant@isep.fr
+		                                </div>
+		                                <div class="form-group">
+		                                  <label for="obj">Objet de votre message:</label>
+		                                  <input class="form-control" type="text" name="obj">
+		                                </div>
+		                                <div class="form-group">
+		                                  <label for="mail">Message:</label>
+		                                  <textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
+		                                </div>
+		                              </div>
+		                              <div class="modal-footer">
+		                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+		                                <button type="button" class="btn btn-primary">Envoyer</button>
+		                              </div>
+		                            </div>
+		                          </div>
+		                        </div>
+		
+		                      </div>
+		                    </p>
+                  		</div>
+                	</c:forEach>
                 </div>
               </section>
             </div>

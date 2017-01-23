@@ -42,12 +42,14 @@ public class ControleurAccueil extends HttpServlet {
 			
 			if (((Utilisateur) session.getAttribute("sessionUtilisateur")).getStatut().equals("eleve")){
 				request.setAttribute("parcours", Utilisateurs.recupererParcours());
+				request.setAttribute("etatValidation", Eleves.recupererEtatValidation(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("competences", Eleves.recupererCompetences(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("experiences", Eleves.recupererExperiences(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("interetsEleve", Eleves.recupererInterets(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("competencesEleve", Eleves.recupererCompetencesEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				this.getServletContext().getRequestDispatcher( "/jsp/eleve.jsp" ).forward(request, response);
 			} else{
+				request.setAttribute("validations", Responsables.recupererValidations(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("parcours", Utilisateurs.recupererParcours());
 				request.setAttribute("eleves", Eleves.recupererEleves());
 				this.getServletContext().getRequestDispatcher( "/jsp/respoParcours.jsp" ).forward(request, response);
@@ -116,6 +118,11 @@ public class ControleurAccueil extends HttpServlet {
 		
 		if (request.getParameter("boutonDeconnexion") != null){
 			Utilisateurs.deconnecterUtilisateur(session);
+			response.sendRedirect("accueil");
+		}
+		
+		if (request.getParameter("envoyerValidation") != null){
+			Eleves.envoyerValidation(request.getParameter("nomServiceAccueil"), request.getParameter("numSecu"), request.getParameter("optradio"), request.getParameter("adresse"), request.getParameter("email"), request.getParameter("portable"), request.getParameter("siret"), request.getParameter("ape"), request.getParameter("nomEntreprise"), request.getParameter("adresseEntreprise"), request.getParameter("adresseStage"), request.getParameter("telStage"), request.getParameter("nomRespo"), request.getParameter("prenomRespo"), request.getParameter("telRespo"), request.getParameter("mailRespo"), request.getParameter("fonctionRespo"), request.getParameter("prenomContactConvention"), request.getParameter("nomContactConvention"), request.getParameter("telConvention"), request.getParameter("adresseContactConvention"), request.getParameter("mailConvention"), request.getParameter("themeStage"), request.getParameter("dateDebutStage"), request.getParameter("dateFinStage"), request.getParameter("indemnite"), request.getParameter("avantage"), Integer.parseInt(request.getParameter("optradioIndemnites")), Integer.parseInt(request.getParameter("optradioEtranger")), request.getParameter("trouveStage"), request.getParameter("prezEntreprise"), request.getParameter("contexteStage"), request.getParameter("missionStage"), request.getParameter("etapeStage"), request.getParameter("connaissanceReq"), "en cours", ((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin(), request.getParameter("prenomEleve"), request.getParameter("nomEleve"), Integer.parseInt(request.getParameter("parcoursEleve")));
 			response.sendRedirect("accueil");
 		}
 		

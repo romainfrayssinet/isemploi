@@ -297,8 +297,17 @@
             <div id="valid" class="tab-pane fade">
 
               <h2><b>Déclaration de stage</b></h2><br>
-
-							<ul class="nav nav-pills">
+              
+              <c:choose>
+				<c:when test = "${etatValidation == 1}">
+	   				<p>Votre déclaration de stage est en cours de traitement, nous vous répondrons dans les plus brefs délais.</p>
+	   				<p>Si vous pouvez à nouveau soumettre une déclaration de stage, c'est que celle que vous avez envoyée ne convient pas. Dans ce cas, n'hésitez pas à contacter votre responsable de parcours pour plus de renseignements.</p>
+				</c:when>
+				<c:when test = "${etatValidation == 2}">
+	   				<p>Votre déclaration de stage a été validée.</p>
+				</c:when>
+			    <c:otherwise>
+			     	<ul class="nav nav-pills">
   							<li class="active"><a data-toggle="pill" href="#eleve">Elève</a></li>
   							<li><a data-toggle="pill" href="#entreprise">Entreprise</a></li>
   							<li><a data-toggle="pill" href="#respoStage">Responsable de stage</a></li>
@@ -310,12 +319,17 @@
 								<div class="tab-content">
 									<div id="eleve" class="tab-pane fade in active">
 										<div class="radio">
-											<label class="radio-inline"><input type="radio" name="optradioA2">A2</label>
-											<label class="radio-inline"><input type="radio" name="optradioA3">A3</label>
-											<label class="radio-inline"><input type="radio" name="optradioCesure">Césure</label>
-											<label class="radio-inline"><input type="radio" name="optradioMsc">Msc</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A2">A2</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="A3">A3</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Cesure">Césure</label>
+											<label class="radio-inline"><input type="radio" name="optradio" value="Msc">Msc</label>
 										</div>
 										<fieldset><legend>Elève:</legend>
+										<input type="hidden" name="prenomEleve" value="${sessionScope.sessionUtilisateur.prenom}">
+										<input type="hidden" name="nomEleve" value="${sessionScope.sessionUtilisateur.nom}">
+										<input type="hidden" name="parcoursEleve" value="${sessionScope.sessionUtilisateur.idParcours}">
+										<input type="hidden" name="email" value="${sessionScope.sessionUtilisateur.email}">
+										<input type="hidden" name="portable" value="${sessionScope.sessionUtilisateur.portable}">
 											<div class="form-group">
 												<u>Nom et Prénom:</u> ${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom} <br>
 											</div>
@@ -345,14 +359,18 @@
 										<fieldset><legend>Entreprise:</legend>
 											<div class="form-group">
 												<b>Numéro SIRET de l'Entreprise:</b>
-												<input class="form-control" type="number" name="siret">
+												<input class="form-control" type="text" name="siret">
 											</div>
 											<div class="form-group">
 				                <b>Code APE:</b>
-				                <input class="form-control" type="number" name="ape">
+				                <input class="form-control" type="text" name="ape">
 				              </div>
 											<div class="form-group">
-				              	Nom et adresse (A) de la société signataire de la convention ou du contrat:
+				              	Nom de la société signataire de la convention ou du contrat:
+				                <input class="form-control" type="text" name="nomEntreprise">
+				              </div>
+				              				<div class="form-group">
+				              	Adresse (A) de la société signataire de la convention ou du contrat:
 				                <input class="form-control" type="text" name="adresseEntreprise">
 				              </div>
 											<div class="form-group">
@@ -412,28 +430,28 @@
 										<fieldset><legend>Stage:</legend>
 											<div class="form-group">
 												<b><u>Thème du stage (en une ou deux lignes) - et remplir annexe:</u></b>
-												<textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
+												<textarea class="form-control" name="themeStage" rows="8" cols="70"></textarea>
 											</div>
 											<div class="form-group">
 												Date prévues pour le stage, du <input class="form-control" type="date" name="dateDebutStage"> au <input class="form-control" type="date" name="dateFinStage">
 											</div>
 											<div class="form-group">
 							        	<b>Indémnité de stage en euros, mensuelle brute:</b>
-							          <input class="form-control" type="number" name="indemnite">
+							          <input class="form-control" type="text" name="indemnite">
 							        </div>
 											<div class="form-group">
 							          Avantages en nature en euros:
-							        	<input class="form-control" type="number" name="avantage">
+							        	<input class="form-control" type="text" name="avantage">
 							        </div>
 											<div class="form-group">
 												A l'étranger, Si l'indémnité est supérieur à 15% du plafond mensuel de la sécurité sociale (cad supérieure à 554,40€), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail?
-												<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradioIndemnites" value="0">Non</label>
 											</div>
 											<div class="form-group">
 							          Déplacement à l'étranger au cours du stage (effectué en France):
-												<label class="radio-inline"><input type="radio" name="optradio" value="oui">Oui</label>
-												<label class="radio-inline"><input type="radio" name="optradio" value="non">Non</label>
+												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="1">Oui</label>
+												<label class="radio-inline"><input type="radio" name="optradioEtranger" value="0">Non</label>
 							        </div>
 											<div class="form-group">
 							          Par quel moyen vous avez trouvé ce stage:
@@ -470,13 +488,17 @@
 									<div id="envoieValid" class="tab-pane fade">
 										<fieldset><legend>Envoie de votre déclaration de stage:</legend>
 											<p>Assurez-vous que vous avez bien rempli tout les champs de la déclaration. Nous vous donnerons une réponse dans les plus brefs délais.</p>
-											<input type="submit" class="btn btn-primary" value="Envoyer">
+											<input type="submit" class="btn btn-primary" name="envoyerValidation" value="Envoyer">
 										</fieldset>
 									</div>
 								</div>
 							</form>
 
-            </div>
+            
+			    </c:otherwise>
+			  </c:choose>
+
+			</div>
 
             <div id="contact" class="tab-pane fade">
               <div class="form-group">

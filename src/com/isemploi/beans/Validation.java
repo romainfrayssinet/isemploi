@@ -27,18 +27,76 @@ public class Validation {
 	private String theme_stage;
 	private String debut_stage;
 	private String fin_stage;
-	private int salaire;
-	private int avantage;
-	private String indemnite_etranger;
-	private String deplacement_etranger;
+	private String salaire;
+	private String avantage;
+	private int indemnite_etranger;
+	private int deplacement_etranger;
 	private String moyen_stage;
 	private String presentation_ent;
 	private String contexte_stage;
 	private String mission;
 	private String etapes;
-	private String conssaissances;
+	private String connaissances;
+	private String parcoursEleve;
+	private String prenomEleve;
+	private String nomEleve;
+	private String annee;
+	private String nomAccueil;
+	private String etat;
 	
 	
+	public String getParcoursEleve() {
+		return parcoursEleve;
+	}
+
+	public void setParcoursEleve(String parcoursEleve) {
+		this.parcoursEleve = parcoursEleve;
+	}
+
+	public String getPrenomEleve() {
+		return prenomEleve;
+	}
+
+	public void setPrenomEleve(String prenomEleve) {
+		this.prenomEleve = prenomEleve;
+	}
+
+	public String getNomEleve() {
+		return nomEleve;
+	}
+
+	public void setNomEleve(String nomEleve) {
+		this.nomEleve = nomEleve;
+	}
+
+	public String getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(String annee) {
+		this.annee = annee;
+	}
+
+	public String getNomAccueil() {
+		return nomAccueil;
+	}
+
+	public void setNomAccueil(String nomAccueil) {
+		this.nomAccueil = nomAccueil;
+	}
+
+	public String getEtat() {
+		return etat;
+	}
+
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+
+	public void setConnaissances(String connaissances) {
+		this.connaissances = connaissances;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -197,28 +255,28 @@ public class Validation {
 	public void setFin_stage(String fin_stage) {
 		this.fin_stage = fin_stage;
 	}
-	public int getSalaire() {
+	public String getSalaire() {
 		return salaire;
 	}
-	public void setSalaire(int salaire) {
+	public void setSalaire(String salaire) {
 		this.salaire = salaire;
 	}
-	public int getAvantage() {
+	public String getAvantage() {
 		return avantage;
 	}
-	public void setAvantage(int avantage) {
+	public void setAvantage(String avantage) {
 		this.avantage = avantage;
 	}
-	public String getIndemnite_etranger() {
+	public int getIndemnite_etranger() {
 		return indemnite_etranger;
 	}
-	public void setIndemnite_etranger(String indemnite_etranger) {
+	public void setIndemnite_etranger(int indemnite_etranger) {
 		this.indemnite_etranger = indemnite_etranger;
 	}
-	public String getDeplacement_etranger() {
+	public int getDeplacement_etranger() {
 		return deplacement_etranger;
 	}
-	public void setDeplacement_etranger(String deplacement_etranger) {
+	public void setDeplacement_etranger(int deplacement_etranger) {
 		this.deplacement_etranger = deplacement_etranger;
 	}
 	public String getMoyen_stage() {
@@ -251,11 +309,11 @@ public class Validation {
 	public void setEtapes(String etapes) {
 		this.etapes = etapes;
 	}
-	public String getConssaissances() {
-		return conssaissances;
+	public String getConnaissances() {
+		return connaissances;
 	}
-	public void setConssaissances(String conssaissances) {
-		this.conssaissances = conssaissances;
+	public void setConssaissances(String connaissances) {
+		this.connaissances = connaissances;
 	}
 	
 	

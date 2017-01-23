@@ -122,6 +122,7 @@ public class Utilisateurs{
 				utilisateur.setSituation(resultat.getString("u_situation"));
 				utilisateur.setNumero(resultat.getString("u_numero"));
 				utilisateur.setProfession(resultat.getString("u_profession"));
+				utilisateur.setIdParcours(resultat.getString("p_id"));
 				utilisateur.setDebutNumero(resultat.getString("u_numero").substring(0,2));
 				
 			}

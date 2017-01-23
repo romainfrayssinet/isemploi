@@ -22,7 +22,14 @@ public class Utilisateur {
 	private String role;
 	private String profession;
 	private String debutNumero;
+	private String idParcours;
 	
+	public String getIdParcours() {
+		return idParcours;
+	}
+	public void setIdParcours(String idParcours) {
+		this.idParcours = idParcours;
+	}
 	public String getDebutNumero() {
 		return debutNumero;
 	}
