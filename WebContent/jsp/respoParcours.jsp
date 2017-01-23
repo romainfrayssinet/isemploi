@@ -66,8 +66,8 @@
               		<p>Parcours ${sessionScope.sessionUtilisateur.parcours}</p>
 			    </c:otherwise>
 			</c:choose>
-              <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP" style="opacity:0.9;">Modifier infos</button>
-              <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion" style="opacity:0.9;">Déconnexion</button>
+              <button type="button" class="btn" name="modifInfos" data-toggle="modal" data-target="#modifInfoRP">Modifier infos</button>
+              <button type="button" class="btn deco" data-toggle="modal" data-target="#deconnexion">Déconnexion</button>
 
               <div class="modal fade" id="modifInfoRP" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
                 <div class="modal-dialog" role="document">
@@ -97,7 +97,7 @@
 	                        </div>
 	                      </div>
 	                      <div class="modal-footer">
-	                        <button type="button" class="btn fermet" data-dismiss="modal">Fermer</button>
+	                        <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
 	                        <input type="submit" name="boutonModifInfosRespos" class="btn" value="Modifier">
 	                      </div>
                       </form>
@@ -119,7 +119,7 @@
 		      			<form method="post" action="">
 		      				<div class="modal-footer">
 		        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
-		       					<input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter" style="opacity:0.9;">
+		       					<input type="submit" name="boutonDeconnexion" class="btn deco" value="Se déconnecter">
 		      				</div>
 		      			</form>
 			    	</div>
@@ -269,11 +269,11 @@
                                 Prénom de la personne à qui il faut adresse la convention de stage le cas échéant:
                                 ${validation.rh_prenom}
                               </div>
-                                      <div class="form-group">
+                              <div class="form-group">
                                 Nom de la personne à qui il faut adresse la convention de stage le cas échéant:
                                 ${validation.rh_nom}
                               </div>
-                                      <div class="form-group">
+                              <div class="form-group">
                                 Adresse de la personne à qui il faut adresse la convention de stage le cas échéant:
                                 ${validation.rh_adresse}
                               </div>
