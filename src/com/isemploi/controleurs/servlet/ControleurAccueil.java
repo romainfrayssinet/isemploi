@@ -47,6 +47,7 @@ public class ControleurAccueil extends HttpServlet {
 				request.setAttribute("experiences", Eleves.recupererExperiences(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("interetsEleve", Eleves.recupererInterets(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("competencesEleve", Eleves.recupererCompetencesEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
+				request.setAttribute("validation", Eleves.recupererValidationEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				this.getServletContext().getRequestDispatcher( "/jsp/eleve.jsp" ).forward(request, response);
 			} else{
 				request.setAttribute("validations", Responsables.recupererValidations(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
@@ -103,6 +104,18 @@ public class ControleurAccueil extends HttpServlet {
 		
 		if (request.getParameter("boutonAccepterValidationStage") != null){
 			Responsables.accepterValidation(Integer.parseInt(request.getParameter("idValidation")));
+			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
+			response.sendRedirect("accueil");
+		}
+		
+		if (request.getParameter("boutonRefuserValidationStage") != null){
+			Responsables.refuserValidation(Integer.parseInt(request.getParameter("idValidation")));
+			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
+			response.sendRedirect("accueil");
+		}
+		
+		if (request.getParameter("boutonCommentairesValidationStage") != null){
+			Responsables.commentairesValidation(Integer.parseInt(request.getParameter("idValidation")), request.getParameter("commentairesValidation"));
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}

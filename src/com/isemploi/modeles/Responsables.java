@@ -41,7 +41,7 @@ public class Responsables {
 		
 		try{
 			connexion = connexionBDD();
-			requete = initialiserRequete(connexion, "SELECT * FROM validation WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?)", false, login);
+			requete = initialiserRequete(connexion, "SELECT * FROM validation WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?) AND v_valide != ?", false, login, "demande commentaires");
 			resultat = requete.executeQuery();
 			
 			while(resultat.next()){
@@ -85,6 +85,7 @@ public class Responsables {
 				validation.setConnaissances(resultat.getString("v_connaissances"));
 				validation.setEtat(resultat.getString("v_valide"));
 				validation.setNomAccueil(resultat.getString("v_nom_accueil"));
+				validation.setCommentaires(resultat.getString("v_commentaires"));
 				
 				validations.add(validation);
 				
@@ -106,6 +107,38 @@ public class Responsables {
 		try{
 			connexion = connexionBDD();
 			requete = initialiserRequete(connexion, "UPDATE validation SET v_valide = ? WHERE v_id = ?", false, "valide", idValidation);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
+	public static void commentairesValidation(int idValidation, String commentaires){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "UPDATE validation SET v_valide = ?, v_commentaires = ? WHERE v_id = ?", false, "demande commentaires", commentaires, idValidation);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
+	public static void refuserValidation(int idValidation){
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "DELETE FROM validation WHERE v_id = ?", false, idValidation);
 			requete.executeUpdate();
 			
 		} catch(SQLException e){

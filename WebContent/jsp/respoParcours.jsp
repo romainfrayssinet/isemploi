@@ -365,11 +365,11 @@
 
                           <div id="validDecla" class="tab-pane fade">
                             <fieldset><legend>Valider la déclaration:</legend>
-                              <<div class="buttons">
-    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid" data-toggle="modal" data-target="#accepter${validation.id}"/></a>
-    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal"/></a>
-    		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule"/></a>
-    		                      </div>
+		                      <div class="buttons">
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/checked.png" class="btnValid" alt="valid" data-toggle="modal" data-target="#accepter${validation.id}"/></a>
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/question.png" class="btnValid" alt="details" data-toggle="modal" data-target="#detailsModal${validation.id}"/></a>
+		                        <a href="#"><img src="${pageContext.request.contextPath}/assets/images/cancel.png" class="btnValid" alt="annule" data-toggle="modal" data-target="#refuser${validation.id}"/></a>
+		                      </div>
                             </fieldset>
                           </div>
                         </div>
@@ -384,7 +384,7 @@
 						    		<div class="modal-content">
 						      			<div class="modal-header">
 						        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        			<h4 class="modal-title">Validation la déclaration de Stage</h4>
+						        			<h4 class="modal-title">Validation de la déclaration de Stage</h4>
 						      			</div>
 						      			<div class="modal-body">
 						        			<p>Voulez-vous vraiment valider cette déclaration de Stage ?</p>
@@ -392,39 +392,55 @@
 						      			<form method="post" action="">
 						      				<input type="hidden" name="idValidation" value="${validation.id}">
 						      				<div class="modal-footer">
-						        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
-						       					<input type="submit" name="boutonAccepterValidationStage" class="btn" value="Validation">
+						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						       					<input type="submit" name="boutonAccepterValidationStage" class="btn" value="Valider" style="opacity:0.9;">
 						      				</div>
 						      			</form>
 							    	</div>
 								  </div>
 							  </div>
-
-
-		                      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
+							  
+							  <div class="modal fade" tabindex="-1" role="dialog" id="refuser${validation.id}">
+						 		 <div class="modal-dialog" role="document">
+						    		<div class="modal-content">
+						      			<div class="modal-header">
+						        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        			<h4 class="modal-title">Refus de la déclaration de Stage</h4>
+						      			</div>
+						      			<div class="modal-body">
+						        			<p>Voulez-vous vraiment refuser cette déclaration de Stage ?</p>
+						      			</div>
+						      			<form method="post" action="">
+						      				<input type="hidden" name="idValidation" value="${validation.id}">
+						      				<div class="modal-footer">
+						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						       					<input type="submit" name="boutonRefuserValidationStage" class="btn" value="Refuser" style="opacity:0.9;">
+						      				</div>
+						      			</form>
+							    	</div>
+								  </div>
+							  </div>
+		                      <div class="modal fade" id="detailsModal${validation.id}" tabindex="-1" role="dialog" aria-labelledby="detailsModal">
 		                        <div class="modal-dialog" role="document">
 		                          <div class="modal-content">
 		                            <div class="modal-header">
 		                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                              <h4 class="modal-title" id="myModalLabel">Demandez plus de détails sur ce stage</h4>
-		                              <div class="modal-body">
-		                                <div class="form-group">
-		                                  <label for="destinataire">Destinataire:</label>
-		                                  william.duvant@isep.fr
-		                                </div>
-		                                <div class="form-group">
-		                                  <label for="obj">Objet de votre message:</label>
-		                                  <input class="form-control" type="text" name="obj">
-		                                </div>
-		                                <div class="form-group">
-		                                  <label for="mail">Message:</label>
-		                                  <textarea class="form-control" name="mail" rows="8" cols="70"></textarea>
-		                                </div>
-		                              </div>
-		                              <div class="modal-footer">
-		                                <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
-		                                <button type="button" class="btn">Envoyer</button>
-		                              </div>
+		                              <h4 class="modal-title" id="myModalLabel">Demander plus de détails sur ce stage</h4>
+		                              <form method="post" action="">
+		                              	<div class="modal-body">
+			                              	${validation.prenomEleve} ${validation.nomEleve} devra soumettre sa candidature à nouveau en prenant en compte vos commentaires.
+			                              	Vous n'aurez pas accès à cette validation de stage tant qu'il n'aura pas soumis à nouveau le formulaire.
+			                                <div class="form-group">
+			                                  <label for="mail">Commentaires:</label>
+			                                  <textarea class="form-control" name="commentairesValidation" rows="8" cols="70"></textarea>
+			                                </div>
+			                              </div>
+			                              <div class="modal-footer">
+			                              	<input type="hidden" name="idValidation" value="${validation.id}">
+			                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+			                                <input type="submit" name="boutonCommentairesValidationStage" class="btn" value="Envoyer" style="opacity:0.9;">
+			                             </div>
+		                              </form>
 		                            </div>
 		                          </div>
 		                        </div>
