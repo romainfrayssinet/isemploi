@@ -107,8 +107,13 @@ h2{
   font-size: 15px;
   transition: all 0.3s ease 0s;
 }
+div.buttons{
+	float: right;
+}
 img.btnValid{
-  width: 8%;
+  width: 13%;
+  padding-left: 5px;
+  padding-right: 5px;	
 }
 img.img-rounded.img-responsive{
   width: 70%;

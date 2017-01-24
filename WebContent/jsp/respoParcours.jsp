@@ -36,7 +36,7 @@
 
       <div class="row">
         <nav class="col-lg-3">
-          <img src="${pageContext.request.contextPath}/assets/photosProfil/respoParcours.jpg" style="margin: auto;" class="img-rounded img-responsive" alt="imageRespo">
+          <img src="${pageContext.request.contextPath}/assets/photosProfil/avatar.png" style="margin: auto;" class="img-rounded img-responsive" alt="imageRespo">
 
           <h2>${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</h2>
 
@@ -371,7 +371,7 @@
 						      			<form method="post" action="">
 						      				<input type="hidden" name="idValidation" value="${validation.id}">
 						      				<div class="modal-footer">
-						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
 						       					<input type="submit" name="boutonAccepterValidationStage" class="btn" value="Valider" style="opacity:0.9;">
 						      				</div>
 						      			</form>
@@ -392,7 +392,7 @@
 						      			<form method="post" action="">
 						      				<input type="hidden" name="idValidation" value="${validation.id}">
 						      				<div class="modal-footer">
-						        				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						        				<button type="button" class="btn ferme" data-dismiss="modal">Annuler</button>
 						       					<input type="submit" name="boutonRefuserValidationStage" class="btn" value="Refuser" style="opacity:0.9;">
 						      				</div>
 						      			</form>
@@ -417,7 +417,7 @@
 			                              </div>
 			                              <div class="modal-footer">
 			                              	<input type="hidden" name="idValidation" value="${validation.id}">
-			                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+			                                <button type="button" class="btn ferme" data-dismiss="modal">Fermer</button>
 			                                <input type="submit" name="boutonCommentairesValidationStage" class="btn" value="Envoyer" style="opacity:0.9;">
 			                             </div>
 		                              </form>
