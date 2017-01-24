@@ -116,6 +116,22 @@ public class Responsables {
 		}
 	}
 	
+	public static void validerStage(int idValidation){	
+		Connection connexion = null;
+		PreparedStatement requete = null;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "UPDATE utilisateur SET u_stage = ? WHERE u_login IN (SELECT u_login FROM validation WHERE v_id = ?)", false, "en stage", idValidation);
+			requete.executeUpdate();
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+	}
+	
 	public static void commentairesValidation(int idValidation, String commentaires){
 		Connection connexion = null;
 		PreparedStatement requete = null;
@@ -146,6 +162,55 @@ public class Responsables {
 			fermetureStatement(requete);
 			fermetureConnexion(connexion);
 		}
+	}
+	
+	public static float recupererEleveStagePourcent(String login){
+		Connection connexion = null;
+		ResultSet resultat = null;
+		PreparedStatement requete = null;
+		int nombreTotal = 0;
+		int nombreStage = 0;
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "SELECT COUNT(u_stage) AS total FROM utilisateur WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?) AND u_statut = ?", false, login, "eleve");
+			resultat = requete.executeQuery();
+			
+			if(resultat.next() != false){
+				nombreTotal = resultat.getInt("total");
+			}
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(resultat);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+		
+		try{
+			connexion = connexionBDD();
+			requete = initialiserRequete(connexion, "SELECT COUNT(u_stage) AS eleveStage FROM utilisateur WHERE p_id IN (SELECT p_id FROM utilisateur WHERE u_login = ?) AND u_statut = ? AND u_stage = ?", false, login, "eleve", "en stage");
+			resultat = requete.executeQuery();
+			
+			if(resultat.next() != false){
+				nombreStage = resultat.getInt("eleveStage");
+			}
+			
+			
+			
+		} catch(SQLException e){
+		} finally{
+			fermetureResultSet(resultat);
+			fermetureStatement(requete);
+			fermetureConnexion(connexion);
+		}
+		
+		float pourcent = (float) nombreStage / nombreTotal;
+		
+		
+		return  pourcent;
+		
+		
 	}
 	
 }

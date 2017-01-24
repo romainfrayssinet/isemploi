@@ -14,7 +14,7 @@
   </head>
 
   <body>
-
+	
     <div class="row">
   		<nav class="col-lg-12">
   			<div class="container">
@@ -140,12 +140,7 @@
                 <div class="c100 p0" id="div_loading_progress">
                   <h1><span id="span_progress">0%</span></h1>
                 </div>
-                <p>de vos élèves ont validé leur stage</p>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="c100 p0" id="div_loading_progress"><h1><span id="span_progress2">0%</span></h1></div>
-                <p>des élèves de la promo 2018 ont validé leur stage</p>
+                <p>des élèves de votre parcours ont validé leur stage</p>
               </div>
             </div>
 
@@ -157,7 +152,7 @@
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><img class="img-rounded img-responsive petitesPhotosProfil" src="http://storage.iseplive.fr/avatars/${eleve.debutNumero}/${eleve.numero}.jpg" alt="valid"/></a>
               				<a href="${pageContext.request.contextPath}/profil?login=${eleve.login}"><c:out value = "${eleve.prenom} ${eleve.nom}" /></a>
 		              	</div>
-					        </c:forEach>
+					 </c:forEach>
               	</div>
 
             </div>
@@ -231,7 +226,7 @@
 	                                ${validation.ape}
 	                              </div>
 	                              <div class="form-group">
-	                                Nom de la société signataire de la convention ou du contrat:
+	                                <u>Nom de la société signataire de la convention ou du contrat:</u>
 	                                ${validation.nom_ent}
 	                              </div>
 	                                      <div class="form-group">
@@ -449,7 +444,7 @@
 
     function update_pct(){
       display_pct(pct++);
-      if (pct<=63) {
+      if (pct<= <c:out value="${poucentageEleveStage}"/>) {
           setTimeout(update_pct,30);
       }
     }

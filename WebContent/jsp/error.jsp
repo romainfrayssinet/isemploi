@@ -25,7 +25,7 @@
         	Mmmmmh, c'est embêtant, on dirait bien que nous avons rencontré un petit problème ... !
           <br>
         </p>
-        <p><a href="${pageContext.request.contextPath}/accueil">Cliquez ici</a> pour retourner à notre page de connexion</p>
+        <p><a href="${pageContext.request.contextPath}/accueil">Cliquez ici</a> pour retourner à l'accueil</p>
       </div>
     </div>
   </div>

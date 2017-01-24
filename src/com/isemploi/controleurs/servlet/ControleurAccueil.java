@@ -50,6 +50,7 @@ public class ControleurAccueil extends HttpServlet {
 				request.setAttribute("validation", Eleves.recupererValidationEleve(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				this.getServletContext().getRequestDispatcher( "/jsp/eleve.jsp" ).forward(request, response);
 			} else{
+				request.setAttribute("poucentageEleveStage", Responsables.recupererEleveStagePourcent(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()) * 100);
 				request.setAttribute("validations", Responsables.recupererValidations(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 				request.setAttribute("parcours", Utilisateurs.recupererParcours());
 				request.setAttribute("eleves", Eleves.recupererEleves());
@@ -104,6 +105,7 @@ public class ControleurAccueil extends HttpServlet {
 		
 		if (request.getParameter("boutonAccepterValidationStage") != null){
 			Responsables.accepterValidation(Integer.parseInt(request.getParameter("idValidation")));
+			Responsables.validerStage(Integer.parseInt(request.getParameter("idValidation")));
 			session.setAttribute("sessionUtilisateur", Utilisateurs.recupererUtilisateur(((Utilisateur) session.getAttribute("sessionUtilisateur")).getLogin()));
 			response.sendRedirect("accueil");
 		}
